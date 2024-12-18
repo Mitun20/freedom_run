@@ -4,7 +4,7 @@
 echo "Pulling latest changes from Git..."
 git pull || { echo "Git pull failed. Exiting."; exit 1; }
 
-# Restart the alumniportal service
+# Restart the wwwgunicorn service
 echo "Restarting the wwwgunicorn service..."
 sudo systemctl restart wwwgunicorn || { echo "Failed to restart wwwgunicorn. Exiting."; exit 1; }
 
