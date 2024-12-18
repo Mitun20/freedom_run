@@ -6,7 +6,7 @@ git pull || { echo "Git pull failed. Exiting."; exit 1; }
 
 # Restart the alumniportal service
 echo "Restarting the wwwgunicorn service..."
-sudo systemctl restart wwwgunicorn || { echo "Failed to restart alumniportal. Exiting."; exit 1; }
+sudo systemctl restart wwwgunicorn || { echo "Failed to restart wwwgunicorn. Exiting."; exit 1; }
 
 # Restart the daemon service
 echo "Restarting the daemon service..."
