@@ -19,7 +19,7 @@
     <meta http-equiv="Expires" content="-1">
 
     <link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
-    <title>FREEDOM RUN 2024 | We Wonder Women | Coimbatore </title>
+    <title>FREEDOM RUN 2025 | We Wonder Women | Coimbatore </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="http://fonts.cdnfonts.com/css/digital-7-mono" rel="stylesheet">
@@ -99,16 +99,16 @@
 
     <div class="container-fluid register">
         <div class="row">
-            <div class="col-md-12 col-sm-12 col-lg-6  register-left">
+            <!-- <div class="col-md-12 col-sm-12 col-lg-6  register-left">
 
 
                 <div class="row text-center" style="padding: 16px 0px;">
                     
-                    <!--
+                    
                         <div class="col-md-12 b-1">
                             <h5 style="text-align:center;color: white !important;"><b>Note: The 10 km run is exclusively for participants aged 18 to 45 years.</b></h5>
                         </div>
-                    -->
+                   
 
                     <div class="col-md-3 b-1"></div>
 
@@ -121,7 +121,6 @@
                     </div>
                     <div class="col-md-3 b-1"></div>
 
-                    <!--
                     <div class="col-md-6 b-1">
                         <a class="text-white" style="text-align: center;" target="_blank" href="/static/Route%20map%2010%20km.pdf">
                             <div class="p-3 b-box d-flex justify-content-center">
@@ -129,36 +128,24 @@
                             </div>
                         </a>
                     </div>
-                    -->
                 </div>
                 
                 <p>&nbsp;</p>
-                <iframe width="100%" height="315" 
-                    src="https://www.youtube.com/embed/WmLZ0fb9VPM?si=-HmJ3gy_i64ZC7lq"    
-                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                </iframe>
 
-                <!--
-                    <br>
                     <iframe width="100%" height="315" 
                         src="https://www.youtube.com/embed/mGkgxbLpQkM?si=gdX_5ZFFyfCi3K73" 
                         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>  
                     </iframe>
-
-                -->
-
                 <br> <br>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#view-more-info">View
-                    Details</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#view-more-info">View Details</button>
 
                 <br><br>
                 
-            </div>
+            </div> -->
+            <div class="col-md-2 col-lg-2"></div>
+            <div class="col-md-12 col-sm-12 col-lg-8  register-right">
 
-            <div class="col-md-12 col-sm-12 col-lg-6  register-right">
-
-                <div style="margin: auto;
-    text-align: center;">
+                <div style="margin: auto; text-align: center;">
                     <!--  <img src="{% static 'img/karpagam.png' %}" width="40%" class="text-center"
                         style="text-align:center">
                     <h4>Presents</h4>-->
@@ -170,14 +157,10 @@
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
                             aria-controls="home" aria-selected="true">Individual</a>
                     </li>
-           
-
-              
                     <li class="nav-item">
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
                             aria-controls="profile" aria-selected="false">Team / Family</a>
                     </li>
-               
 
                 </ul>
 
@@ -185,17 +168,15 @@
                     <br>
                     <div class="text-center" style="font-weight:700; color:#e51270; font-size:18px;"> Team / Family
                         Participants will Get 15% Discount.<br>
-                        <h2><b class="text-center" style="text-align:center; color:red;">Registration is Closed.</b>
+                        <h2><b class="text-center" style="text-align:center; color:red;">Registration is open</b>
                         </h2>
                        <!-- <h5 style="text-align:center;color: #000 !important;"><b>Note: The 10 km run is exclusively for participants aged 18 to 45 years.</b></h5>-->
                     </div>
 
                     <br>
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                       
-                       <!--
                         <h3 class="register-heading">Individual Entry</h3>
-                        <fieldset disabled>
+
 
                         <form method="post" action="" id="indform">
                             {% csrf_token %}
@@ -297,17 +278,14 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                                 </div>
                             </div>
                         </form>
-
-                        </fieldset>
-                        -->
                     </div>
 
                     <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <!--
+
                         <h3 class="register-heading">Team Entry</h3>
                         <p class="register-heading" style=" color:#732a84; font-weight:600;">[Team should consists of
                             5-30 members]</p>
-                            <fieldset disabled>
+
                         <form method="post" action="{% url 'team_registration' %}" id="teamform">
 
                             {% csrf_token %}
@@ -336,7 +314,7 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                                                 id="category" required>
                                                 <option value="">Select Category</option>
                                                 <option value="5 Km" selected>5 Km</option>
-                                           
+                                                <option value="10 Km">10 Km</option>
 
                                             </select>
                                         </div>
@@ -465,7 +443,7 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
 
                                                                 <p class="locationcheck" style="color: red;"></p>
                                                             </div>
-                                                        </div> 
+                                                        </div> -->
                                                         <div class="col-md-6">
                                                             <label>T-Shirt Size :<span
                                                                     class="text-danger">*</span></label>
@@ -526,13 +504,10 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                             </div>
 
                         </form>
-
-                    </fieldset>
-
-                -->
                     </div>
                 </div>
             </div>
+            <div class="col-md-2 col-lg-2"></div>
         </div>
     </div>
     <br><br>
@@ -630,14 +605,11 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
 
                     <br><br>
 
-                    <!--
-
                     <div class="container" style="    max-width: 500px !important; margin: auto;">
                         <h6
                         style="text-align:center;       padding: 6px;  margin: 0px;    background: rgb(166,166,166);">
-                        CHENNAI <br> Freedom Run - 25<sup>th</sup> August, 2024 <br> Time : 5:30 A.M - 8.30 A.M </h6>
-                    <table class="table agenta-table" border="1"
-                        style="width: 100%;        border: 1px solid #00000030;">
+                        CHENNAI <br> Freedom Run - 09<sup>th</sup> March, 2025 <br> Time : 5:30 A.M - 8.30 A.M </h6>
+                    <table class="table agenta-table" border="1" style="width: 100%;        border: 1px solid #00000030;">
                         <tr>
                             <td style="width: 35%; "><strong>TIMING</strong></td>
                             <td><strong>SESSION</strong></td>
@@ -664,10 +636,8 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                         </tr>
                     </table>
 
-                    -->
 
-
-                        <h6
+                        <!-- <h6
                             style="text-align:center;       padding: 6px;  margin: 0px;    background: rgb(166,166,166);">
                             COIMBATORE <br> Freedom Run - 1<sup>st</sup> September, 2024 <br> Time : 5:30 A.M - 8.30 A.M </h6>
                         <table class="table agenta-table" border="1"
@@ -696,7 +666,7 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                                 <td style="width: 35%;">8:00 A.M - 8.30 A.M</td>
                                 <td> Breakfast </td>
                             </tr>
-                        </table>
+                        </table> -->
 
                         <!-- <p style="text-align:center;"><b>Note: The 10 km run is exclusively for participants aged 18 to 45 years.</b></p> -->
 
@@ -765,9 +735,6 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
         });
 
         $(document).ready(function () {
-
-
-        
             console.log('Script is running...');
 
             $('.membername').each(function (index) {
@@ -779,7 +746,7 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
 
         // Document is ready
         $(document).ready(function () {
-            var countDownDate = new Date("NOV 15, 2022 12:00:00").getTime();
+            var countDownDate = new Date("MARCH 09, 2025 12:00:00").getTime();
 
 
             // Validate Username

@@ -23,7 +23,7 @@ class Individual_Form(forms.ModelForm):
         for field_name in self.fields.keys():
             self.fields[field_name].widget.attrs.update({'class': 'form-control'}) 
 
-        self.fields['category'].choices = [choice for choice in self.fields['category'].choices if choice[0] != '10 Km']
+        self.fields['category'].choices = [choice for choice in self.fields['category'].choices] #if choice[0] != '10 Km'
     
     def clean(self):
         cleaned_data = super().clean()
