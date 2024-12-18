@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razorpay Payment</title>
+</head>
+
+<body>
+    <form id="paymentForm">
+        <input type="text" id="firstName" name="firstName" placeholder="First Name" required />
+        <input type="text" id="lastName" name="lastName" placeholder="Last Name" required />
+        <input type="text" id="notes" name="notes" placeholder="Notes" />
+        <input type="number" id="total" name="total" placeholder="Total" required />
+        <input type="text" id="streetAddress1" name="streetAddress1" placeholder="Street Address" />
+        <input type="email" id="email" name="email" placeholder="Email" required />
+        <input type="tel" id="phone" name="phone" placeholder="Phone" required />
+        <button type="submit" id="razorGateway">Pay Now</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            
+            $('#paymentForm').submit(function (e) {
+                e.preventDefault();
+                alert("payment clicked..!")
+
+
+
+
+
+
+            //amount = parseInt(discountedamount.toString() + "00");
+            var amount = 100000;
+            var final_amount = 100000;
+
+            var razorpayOptions = {
+                key: 'rzp_test_Eed4IjEX0XtEUa',
+                amount: amount, // amount in the smallest currency unit (e.g., paise for INR)
+                currency: 'INR',
+                name: 'We Wonder Women',
+                description: 'Product or Service Description',
+                image: 'https://wewonderwomen.in/wp-content/uploads/2021/05/logo.png',
+                handler: function (response) {
+
+
+
+                    $('#paid_ref').attr('value', response.razorpay_payment_id);
+
+
+                    // You can add more logic here, like redirecting the user or updating UI
+                    console.log(response);
+                    let indif = $('#individual_id').val()
+
+                    var formData = new FormData($('#indform')[0]);
+                    formData.append('paid_fees', final_amount);
+                    $.ajax({
+                        data: formData, // get the form data
+                        url: "{% url 'ajax-submit' %}?type=individual",
+                        type: "post",
+                        headers: { "X-CSRFToken": "{{ csrf_token }}", },
+                        processData: false,
+                        contentType: false,
+                        beforeSend: function () {
+                            $('#paymentModal').modal('show');
+                        },
+                        // on success
+                        success: function (response) {
+                            window.location.href = "https://register.freedomrun.co.in/registration-status/?id=" + indif + "&type=Individual";
+                        },
+                        // on error
+                        error: function (response) {
+                            // alert the error if any error occured
+                            console.log(response.responseJSON.errors)
+                        }
+                    });
+
+
+                },
+                prefill: {
+                    name: "madhan",
+                    email: "madhanumk@gmail.com",
+                    contact: "9444305984"
+                },
+                theme: {
+                    color: '#F37254'
+                }
+            };
+
+            var rzp = new Razorpay(razorpayOptions);
+            rzp.open();
+        });
+
+    });
+
+    </script>
+</body>
+
+</html>

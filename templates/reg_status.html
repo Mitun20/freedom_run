@@ -1,0 +1,352 @@
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+
+<!-- Mirrored from wewonderwomen.in/freedomrun/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Mar 2024 08:31:15 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+<head>
+
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="Cache-control" content="no-cache">
+
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <meta http-equiv="Expires" content="-1">
+
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
+    <title>FREEDOM RUN 2024 | We Wonder Women | Coimbatore </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="http://fonts.cdnfonts.com/css/digital-7-mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+    <link href="{% static 'style358e.css' %}" rel="stylesheet">
+
+    <style>
+        #usercheck {
+            display: none;
+        }
+
+        #couponcheck {
+            display: none;
+        }
+
+        ul.ftr-list li {
+            display: inline-block;
+        }
+
+        ul.ftr-list li a {
+            color: #fff;
+        }
+
+        .mb-15 {
+            margin-bottom: 15%;
+        }
+
+        ul.registrationtxt li {
+            color: #444;
+            font-weight: bold;
+            list-style-type: none;
+            font-size: 17px;
+            padding: 5px;
+        }
+
+        ul.registrationtxt li span {
+            color: #222;
+            border-bottom: 3px solid #ddfdc2;
+        }
+    </style>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2DQB30MP2D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2DQB30MP2D');
+</script>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row header" id="myHeader">
+
+            <div class="col-md-3 col-sm-12 logo">
+                <a href="{% url 'registration' %}">
+                    <img src="/static/img/freedomrun-logo.webp">
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-12 date-display">
+                <!-- <ul>
+                    <li><i class="fa fa-calendar"></i> <br>AUG 2023 (Sunday)</li>
+                    <li><i class="fa fa-clock-o"></i><br>6:00 AM to 9:00 AM</li>
+                    <li><i class="fa fa-map-marker"></i><br>Decathlon Neelambur, Coimbatore</li>
+                </ul>-->
+
+            </div>
+            <div class="col-md-3 col-sm-12 headerlogo-display">
+                <div><a target="_blank" href="https://wewonderwomen.in/"><img src="/static/img/www-logo-1.jpg"></a>
+                </div>
+                <div><a target="_blank" href="https://bamevents.in/"><img src="/static/img/bam-logo.jpg"></a></div>
+                <div><a target="_blank" href="https://irepute.in/"><img src="/static/img/repute-logo.webp"></a></div>
+            </div>
+        </div>
+    </div>
+    <div class="firework"></div>
+    <div class="firework"></div>
+    <div class="firework"></div>
+    <div class="firework"></div>
+    <div class="firework"></div>
+
+    <!-- <div class="container top-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="logo-box">
+                    <a href="../index.html">
+                        <img class="logo" src="{% static 'img/www-logo.png' %}" style="width: 160px;
+    z-index: 9999;
+    display: block;
+    position: relative;
+    background: #e7e7e7c4;
+    padding: 20px 20px 20px 20px;"></a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container-fluid register">
+        <div class="row">
+            <div class="col-md-3"></div>
+
+            <div class="col-md-6 col-sm-12 col-lg-6 mb-15">
+
+                <div
+                    style="margin: auto;
+    text-align: center; background: #fff; margin-top:20%; border-radius: 15px; border:5px solid #d01180; padding: 40px;">
+
+                    <img src="{% static 'img/check.png' %}">
+                    <h3 style="color:#367c42;">Registration Successful</h3>
+                    <ul class="registrationtxt">
+                        <li>Registration Fees:<span> ₹ {{ amount }}</span></li>
+                        <li>Name:<span> {{ name }}</span></li>
+                        <li>Paid Reference: <span>{{ paid_ref }}</span></li>
+                        {% if chest_no %}
+                        <li>Chest No: <span>{{chest_no}}</span></li>
+                        {% endif %}
+                        <li>Category: <span>{% if category == "5 Km" %} 5 Kms {% else %} 10 Kms {% endif%}</span> </li>
+                    </ul>
+
+                    <br>
+                    <br>
+                    <!--  <img src="{% static 'img/karpagam.png' %}" width="40%" class="text-center"
+                        style="text-align:center">
+                    <h4>Presents</h4>-->
+                </div>
+
+
+
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <br><br>
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="t-size" tabindex="-1" role="dialog" aria-labelledby="t-size" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="t-size">T-Shirt Size Chart</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <th>Brand Size</th>
+                                <th>Chest (inch)</th>
+                                <th>Length (inch)</th>
+                            </tr>
+
+                            <tr>
+                                <td>S</td>
+                                <td class="a-nowrap">38</td>
+                                <td class="a-nowrap">26</td>
+                            </tr>
+                            <tr>
+                                <td>M</td>
+                                <td class="a-nowrap">40</td>
+                                <td class="a-nowrap">27</td>
+                            </tr>
+                            <tr>
+                                <td>L</td>
+                                <td class="a-nowrap">42</td>
+                                <td class="a-nowrap">28</td>
+                            </tr>
+                            <tr>
+                                <td>XL</td>
+                                <td class="a-nowrap">44</td>
+                                <td class="a-nowrap">29</td>
+                            </tr>
+                            <tr>
+                                <td>2XL</td>
+                                <td class="a-nowrap">46</td>
+                                <td class="a-nowrap">30</td>
+                            </tr>
+                            <tr>
+                                <td>3XL</td>
+                                <td class="a-nowrap">48</td>
+                                <td class="a-nowrap">31</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="view-more-info" tabindex="-1" role="dialog" aria-labelledby="view-more-info"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <br><br>
+
+                    <div class="container" style="    max-width: 500px !important; margin: auto;">
+
+                        <h6
+                            style="text-align:center;       padding: 6px;  margin: 0px;    background: rgb(166,166,166);">
+                            COIMBATORE <br> Freedom Run - 18 <sup>th</sup> August, 2024 <br> Time : 5:30 A.M - 8.30 A.M
+                        </h6>
+                        <table class="table agenta-table" border="1"
+                            style="width: 100%;        border: 1px solid #00000030;">
+                            <tr>
+                                <td style="width: 35%; "><strong>TIMING</strong></td>
+                                <td><strong>SESSION</strong></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35%;">5:45 A.M - 6:00 A.M</td>
+                                <td>Warmup Session</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35%;">6:00 A.M - 7:00 A.M</td>
+                                <td>5 KM FREEDOM RUN </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35%;">7:00 A.M - 7:30 A.M</td>
+                                <td>Zumba Session- by Female Zin. Zumba trainers </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35%;">7:30 A.M - 8:00 A.M</td>
+                                <td>Fitnees session </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35%;">8:00 A.M - 8.30 A.M</td>
+                                <td> Breakfast </td>
+                            </tr>
+                        </table>
+
+                        <h6
+                            style="text-align:center;       padding: 6px;  margin: 0px;    background: rgb(166,166,166);">
+                            CHENNAI <br> Freedom Run - 1 <sup>st</sup> September, 2024 <br> Time : 5:30 A.M - 8.30 A.M
+                        </h6>
+                        <table class="table agenta-table" border="1"
+                            style="width: 100%;        border: 1px solid #00000030;">
+                            <tr>
+                                <td style="width: 35%; "><strong>TIMING</strong></td>
+                                <td><strong>SESSION</strong></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35%;">5:45 A.M - 6:00 A.M</td>
+                                <td>Warmup Session</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35%;">6:00 A.M - 7:00 A.M</td>
+                                <td>5 KM FREEDOM RUN </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35%;">7:00 A.M - 7:30 A.M</td>
+                                <td>Zumba Session- by Female Zin. Zumba trainers </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35%;">7:30 A.M - 8:00 A.M</td>
+                                <td>Fitnees session </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35%;">8:00 A.M - 8.30 A.M</td>
+                                <td> Breakfast </td>
+                            </tr>
+                        </table>
+
+                    </div>
+
+
+                    <!--<h3 class="text-center">Agenda</h3>
+
+
+<div class="col-md-6"><div class="">Fitness, Zumba Sessions</div></div>
+<div class="col-md-6"><div class=""> Self-defence workshop</div></div> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <section class="ftr">
+        <div class="container">
+            <ul class="ftr-list">
+                <li><a href="{% url 'contact-us' %}">Contact Us | </a></li>
+                <li><a href="{% url 'terms-conditions' %}">Terms & Conditions | </a></li>
+                <li><a href="{% url 'privacy-policy' %}">Privacy & Policy | </a></li>
+                <li><a href="{% url 'cancellation-policy' %}">Cancellation Policy | </a></li>
+                <li><a href="{% url 'shipping-policy' %}">Shipping Policy</a></li>
+            </ul>
+            Copyright © 2024 Freedom Run - Kovai Wonder Woman Trust. Concept by <a href="https://irepute.in"
+                target="_blank">repute</a>
+        </div>
+    </section>
+
+
+
+    <!--<script src="../../cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="../../maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+<script src="../../code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script src="validation1c3b.js?version=136"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>

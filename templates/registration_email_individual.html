@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Email</title>
+</head>
+<body style="color: black;">
+    <p>Thank you! {{ instance.name }} is registered for the We Wonder Women event: {{ event_name }}. Your strides speak volumes, and your unwavering commitment can make a world of difference!</p>
+    <p>Your participation makes a significant difference, and we can't wait to see you at the event. Your effort to contribute towards empowering women through education, skill-based training, and awareness sessions is much appreciated.</p>
+    <p><strong>Here are the booking details:</strong></p>
+    <p><strong>Event Details:</strong></p>
+    <ul>
+        <li><strong>Event Name:</strong> {{ event_name }}</li>
+        <li><strong>Date:</strong> {{ event_details.date }}</li>
+        <li><strong>Time:</strong> {{ event_details.time }}</li>
+    </ul>
+    <p><strong>Individual Details:</strong></p>
+    <ul>
+        <li><strong>Name:</strong> {{ instance.name }}</li>
+        <li><strong>Date of Birth:</strong> {{ instance.dob }}</li>
+        <li><strong>Email:</strong> {{ instance.email }}</li>
+        <li><strong>Gender:</strong> {{ instance.get_gender_display }}</li>
+        <li><strong>Phone Number:</strong> {{ instance.phone_no }}</li>
+        <li><strong>Area:</strong> {{ instance.area }}</li>
+        <li><strong>T-Shirt Size:</strong> {{ instance.tshirt_size }}</li>
+        <li><strong>Paid Amount:</strong> {{ instance.paid_amount }}</li> 
+        <li><strong>Category:</strong> {{ instance.get_category_display }} </li> 
+        <li><strong>Chest No:</strong> {{ instance.chest_no }} </li> 
+    </ul>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<form method="post">
+    {% csrf_token %}
+    <!-- Display team details -->
+    <input type="text" name="team_name" value="{{ team.team_name }}">
+    <input type="text" name="org_name" value="{{ team.organization_name }}">
+    <input type="text" name="total_members" value="{{ team.total_members }}">
+    
+    <!-- Display member details -->
+    {% for member in members %}
+    <input type="text" name="name_{{ member.id }}" value="{{ member.name }}">
+    <!-- Populate other member fields similarly -->
+    {% endfor %}
+    
+    <button type="submit">Submit</button>
+</form>
