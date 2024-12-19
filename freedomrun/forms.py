@@ -19,6 +19,15 @@ class Individual_Form(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(Individual_Form, self).__init__(*args, **kwargs)
         # Set the 'your_field_name' field as disabled
+        
+        # Set the 'area' field to "Chennai" and make it readonly
+        self.fields['area'].initial = 'Chennai'
+        self.fields['area'].widget.attrs.update({'readonly': 'readonly', 'class': 'form-control'})
+        
+        # Apply 'form-control' class to all fields
+        for field_name in self.fields.keys():
+            self.fields[field_name].widget.attrs.update({'class': 'form-control'}) 
+
         self.fields['registration_fee'].disabled = True
         for field_name in self.fields.keys():
             self.fields[field_name].widget.attrs.update({'class': 'form-control'}) 
