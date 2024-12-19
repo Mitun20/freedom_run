@@ -61,5 +61,9 @@ class MemberForm(forms.ModelForm):
     class Meta:
         model = Member
         exclude = ('team_family',)
-
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Set default value for 'area' field to "Chennai"
+        self.fields['area'].initial = 'Chennai'
 MemberFormSet = forms.modelformset_factory(Member, form=MemberForm, extra=1)
