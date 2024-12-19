@@ -13,7 +13,7 @@ class Individual_Form(forms.ModelForm):
         fields = ['name','dob','email','gender','phone_no','area','category','tshirt_size','registration_fee']
 
         widgets = {
-            'dob': forms.DateInput(attrs={'type': 'date', 'max': '2018-12-31'}),
+            'dob': forms.DateInput(attrs={'type': 'date', 'max': '2019-12-31'}),
         }
 
     def __init__(self, *args, **kwargs):
