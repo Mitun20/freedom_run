@@ -66,9 +66,11 @@ def team_registration(request):
         print(category)
         print("#############################################")
     
-        if category == '5 Km':
-            fee_per_member = 500
-        elif category == '10 Km':
+        if category == '5 Km Walk':
+            fee_per_member = 1
+        elif category == '5 Km Run':
+            fee_per_member = 1
+        elif category == '10 Km Run':
             fee_per_member = 700
         else:
             fee_per_member = 500  
@@ -89,8 +91,10 @@ def team_registration(request):
         member_dob_list = request.POST.getlist(f'dob[]')
         member_email_list = request.POST.getlist(f'email[]')
         #member_location_list = request.POST.getlist(f'location[]')
+        member_blood_group_list = request.POST.getlist(f'blood_group[]')
         member_gender_list = request.POST.getlist(f'gender[]')
         member_phone_list = request.POST.getlist(f'phone[]')
+        member_additional_ph_no_list = request.POST.getlist(f'additional_ph_no[]')
         member_area_list = request.POST.getlist(f'address[]')
         member_tshirt_size_list = request.POST.getlist(f't_shirt_size[]')
         
@@ -109,8 +113,10 @@ def team_registration(request):
                 'name': member_name_list[i],
                 'dob': member_dob_list[i],
                 'email': member_email_list[i],
+                'blood_group': member_blood_group_list[i],
                 'gender': gender,
                 'phone_no': member_phone_list[i],
+                'additional_ph_no':member_additional_ph_no_list[i],
                 'area': member_area_list[i],
                 'tshirt_size_id': member_tshirt_size_list[i],
                 
@@ -128,9 +134,11 @@ def team_registration(request):
 def edit_individual_registration(request, individual_id):
     individual = get_object_or_404(Individual, id=individual_id)
 
-    if individual.category == "5 Km":
-        amount = 500
-    elif individual.category == "10 Km":
+    if individual.category == "5 Km Walk":
+        amount = 1
+    elif individual.category == "5 Km Run":
+        amount = 1
+    elif individual.category == "10 Km Run":
         amount = 700
 
     individual.registration_fee = amount
@@ -150,9 +158,11 @@ def edit_individual_registration(request, individual_id):
         form = Individual_Form(instance=individual)
 
 
-    if individual.category == "5 Km":
-        amount = 500
-    elif individual.category == "10 Km":
+    if individual.category == "5 Km Walk":
+        amount = 1
+    elif individual.category == "5 Km Run":
+        amount = 1
+    elif individual.category == "10 Km Run":
         amount = 700
 
    
@@ -322,9 +332,11 @@ def ajax_team_submit(request):
             member_name_list = request.POST.getlist(f'name[1]')
             member_dob_list = request.POST.getlist(f'dob[]')
             member_email_list = request.POST.getlist(f'email[]')
+            member_blood_group_list = request.POST.getlist(f'blood_group[]')
             #member_location_list = request.POST.getlist(f'location[]')
             member_gender_list = request.POST.getlist(f'gender[]')
             member_phone_list = request.POST.getlist(f'phone[]')
+            member_additional_ph_no_list = request.POST.getlist(f'additional_ph_no[]')
             member_area_list = request.POST.getlist(f'address[]')
             member_tshirt_size_list = request.POST.getlist(f't_shirt_size[]')
             print(member_tshirt_size_list,'size')
@@ -347,9 +359,11 @@ def ajax_team_submit(request):
                     'name': member_name_list[i],
                     'dob': member_dob_list[i],
                     'email': member_email_list[i],
+                    'blood_group': member_blood_group_list[i],
                     #'location': member_location_list[i],
                     'gender': gender,
                     'phone_no': member_phone_list[i],
+                    'additional_ph_no':member_additional_ph_no_list[i],
                     'area': member_area_list[i],
                     'tshirt_size_id': member_tshirt_size_list[i]
                 }

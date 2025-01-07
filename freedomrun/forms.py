@@ -10,7 +10,7 @@ class Individual_Form(forms.ModelForm):
     
     class Meta:
         model = Individual
-        fields = ['name','dob','email','gender','phone_no','area','category','tshirt_size','registration_fee']
+        fields = ['name','dob','email','blood_group','gender','phone_no','additional_ph_no','area','category','tshirt_size','registration_fee']
 
         widgets = {
             'dob': forms.DateInput(attrs={'type': 'date', 'max': '2019-12-31'}),
@@ -37,12 +37,14 @@ class Individual_Form(forms.ModelForm):
     def clean(self):
         cleaned_data = super().clean()
         category = cleaned_data.get('category')
-        if category == '5km':
-            cleaned_data['registration_fee'] = 500.00
-        elif category == '10km':
+        if category == '5 km Walk':
+            cleaned_data['registration_fee'] = 1.00
+        elif category == '5 km Run':
+            cleaned_data['registration_fee'] = 1.00
+        elif category == '10 km Run':
             cleaned_data['registration_fee'] = 700.00
         else:
-            cleaned_data['registration_fee'] = 500.00  # Default fee
+            cleaned_data['registration_fee'] = 1.00  # Default fee
         return cleaned_data
             
 

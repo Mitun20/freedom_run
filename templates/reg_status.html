@@ -142,7 +142,8 @@
                         {% if chest_no %}
                         <li>Chest No: <span>{{chest_no}}</span></li>
                         {% endif %}
-                        <li>Category: <span>{% if category == "5 Km" %} 5 Kms {% else %} 10 Kms {% endif%}</span> </li>
+                        <li>Category: <span>{% if category == "5 Km Walk" %} 5 Kms Walk {% elif category == "5 Km Run" %}
+                            5 Kms Run {% else %} 10 Kms Run {% endif%}</span> </li>
                     </ul>
 
                     <br>

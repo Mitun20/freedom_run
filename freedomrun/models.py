@@ -1,6 +1,16 @@
 from django.db import models
 from decimal import Decimal
 # Create your models here.
+BLOOD_GROUP_CHOICES = [
+    ('A+', 'A+'),
+    ('A-', 'A-'),
+    ('B+', 'B+'),
+    ('B-', 'B-'),
+    ('O+', 'O+'),
+    ('O-', 'O-'),
+    ('AB+', 'AB+'),
+    ('AB-', 'AB-'),
+]
 gender_choices = [
     ('', 'Choose Gender'),
     ('M', 'Male'),
@@ -9,8 +19,9 @@ gender_choices = [
 ]
 category_choices =[
     ('', 'Choose category '),
-    ('5 Km', '5 Kms'),
-    ('10 Km', '10 Kms')
+    ('5 Km Walk', '5 Kms Walk'),
+    ('5 Km Run', '5 Kms Run'),
+    ('10 Km Run', '10 Kms Run')
 ]
 '''location_choices = [
     ('', 'Choose location'),
@@ -49,10 +60,12 @@ class Individual(models.Model):
     name = models.CharField(max_length=250)
     dob = models.DateField()
     email = models.EmailField()
+    blood_group = models.CharField( max_length=10, choices=BLOOD_GROUP_CHOICES, default="O+",null=True,blank=True)
     #location = models.CharField(max_length=50,choices=location_choices)
-    category = models.CharField(max_length=20,choices=category_choices,null=True,default="5 Km")
+    category = models.CharField(max_length=20,choices=category_choices,null=True,default="5 Km Walk")
     gender = models.CharField(max_length=1,choices=gender_choices)
     phone_no = models.CharField(max_length=10)
+    additional_ph_no = models.CharField(max_length=10, blank=True, null=True)
     area = models.TextField()
     tshirt_size = models.ForeignKey(Tshirt_Size,on_delete=models.SET_NULL,null=True)
     registration_fee = models.DecimalField(max_digits=10, decimal_places=2,default=500.00)
@@ -76,7 +89,7 @@ class Individual(models.Model):
 class Team_Family(models.Model):
     team_name = models.CharField(max_length=250)
     organization_name = models.CharField(max_length=250,null=True,blank=True)
-    category = models.CharField(max_length=20,choices=category_choices,null=True,default="5 Km")
+    category = models.CharField(max_length=20,choices=category_choices,null=True,default="5 Km Walk")
     no_of_persons = models.BigIntegerField()
     registered_date = models.DateField(auto_now=True,null=True)
     fees = models.IntegerField(default=0)
@@ -119,9 +132,11 @@ class Member(models.Model):
     name = models.CharField(max_length=250,null=False)
     dob = models.DateField()
     email = models.EmailField()
+    blood_group = models.CharField( max_length=10, choices=BLOOD_GROUP_CHOICES, default="O+",null=True,blank=True)
     #location = models.CharField(max_length=50 ,choices=location_choices)
     gender = models.CharField(max_length=1,choices=gender_choices)
     phone_no = models.CharField(max_length=10)
+    additional_ph_no = models.CharField(max_length=10, blank=True, null=True)
     area = models.TextField()
     tshirt_size = models.ForeignKey(Tshirt_Size,on_delete=models.SET_NULL,null=True)
     registered_date = models.DateField(auto_now=True,null=True)

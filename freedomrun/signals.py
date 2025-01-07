@@ -12,21 +12,26 @@ def assign_chest_no_to_individual(sender, instance, **kwargs):
     if not instance.chest_no and instance.is_paid:  # Only assign if chest_no is not already set
         category = instance.category
         
-        if category == "5 Km":
-            ind_last = Individual.objects.filter(category="5 Km", chest_no__isnull=False).last()
-            members_last = Member.objects.filter(team_family__category="5 Km", chest_no__isnull=False).last()
-        elif category == "10 Km":
-            ind_last = Individual.objects.filter(category="10 Km", chest_no__isnull=False).last()
-            members_last = Member.objects.filter(team_family__category="10 Km", chest_no__isnull=False).last()
+        if category == "5 Km Walk":
+            ind_last = Individual.objects.filter(category="5 Km Walk", chest_no__isnull=False).last()
+            members_last = Member.objects.filter(team_family__category="5 Km Walk", chest_no__isnull=False).last()
+        elif category == "5 Km Run":
+            ind_last = Individual.objects.filter(category="5 Km Run", chest_no__isnull=False).last()
+            members_last = Member.objects.filter(team_family__category="5 Km Run", chest_no__isnull=False).last()
+        elif category == "10 Km Run":
+            ind_last = Individual.objects.filter(category="10 Km Run", chest_no__isnull=False).last()
+            members_last = Member.objects.filter(team_family__category="10 Km Run", chest_no__isnull=False).last()
         else:
             return  # Exit if category is not recognized
 
         ind_last_no = ind_last.chest_no if ind_last else 0
         member_last_no = members_last.chest_no if members_last else 0
 
-        if category == "5 Km":
+        if category == "5 Km Walk":
             new_chest_no = max(ind_last_no, member_last_no) + 1 if ind_last_no or member_last_no else 1001
-        elif category == "10 Km":
+        elif category == "5 Km Run":
+            new_chest_no = max(ind_last_no, member_last_no) + 1 if ind_last_no or member_last_no else 1001
+        elif category == "10 Km Run":
             new_chest_no = max(ind_last_no, member_last_no) + 1 if ind_last_no or member_last_no else 5001
 
         instance.chest_no = new_chest_no
@@ -39,21 +44,26 @@ def assign_chest_no_to_member(sender, instance, **kwargs):
         if team_family.is_paid:
             
             category = team_family.category
-            if category == "5 Km":
-                ind_last = Individual.objects.filter(category="5 Km", chest_no__isnull=False).last()
-                members_last = Member.objects.filter(team_family__category="5 Km", chest_no__isnull=False).last()
-            elif category == "10 Km":
-                ind_last = Individual.objects.filter(category="10 Km", chest_no__isnull=False).last()
-                members_last = Member.objects.filter(team_family__category="10 Km", chest_no__isnull=False).last()
+            if category == "5 Km Walk":
+                ind_last = Individual.objects.filter(category="5 Km Walk", chest_no__isnull=False).last()
+                members_last = Member.objects.filter(team_family__category="5 Km Walk", chest_no__isnull=False).last()
+            elif category == "5 Km Run":
+                ind_last = Individual.objects.filter(category="5 Km Run", chest_no__isnull=False).last()
+                members_last = Member.objects.filter(team_family__category="5 Km Run", chest_no__isnull=False).last()
+            elif category == "10 Km Run":
+                ind_last = Individual.objects.filter(category="10 Km Run", chest_no__isnull=False).last()
+                members_last = Member.objects.filter(team_family__category="10 Km Run", chest_no__isnull=False).last()
             else:
                 return  # Exit if category is not recognized
 
             ind_last_no = ind_last.chest_no if ind_last else 0
             member_last_no = members_last.chest_no if members_last else 0
 
-            if category == "5 Km":
+            if category == "5 Km Walk":
                 new_chest_no = max(ind_last_no, member_last_no) + 1 if ind_last_no or member_last_no else 1001
-            elif category == "10 Km":
+            elif category == "5 Km Run":
+                new_chest_no = max(ind_last_no, member_last_no) + 1 if ind_last_no or member_last_no else 1001
+            elif category == "10 Km Run":
                 new_chest_no = max(ind_last_no, member_last_no) + 1 if ind_last_no or member_last_no else 5001
 
             instance.chest_no = new_chest_no
@@ -73,21 +83,26 @@ def assign_chest_no_to_member(sender, instance, **kwargs):
     if team_family.is_paid:
         
         category = team_family.category
-        if category == "5 Km":
-            ind_last = Individual.objects.filter(category="5 Km", chest_no__isnull=False).last()
-            members_last = Member.objects.filter(team_family__category="5 Km", chest_no__isnull=False).last()
-        elif category == "10 Km":
-            ind_last = Individual.objects.filter(category="10 Km", chest_no__isnull=False).last()
-            members_last = Member.objects.filter(team_family__category="10 Km", chest_no__isnull=False).last()
+        if category == "5 Km Walk":
+            ind_last = Individual.objects.filter(category="5 Km Walk", chest_no__isnull=False).last()
+            members_last = Member.objects.filter(team_family__category="5 Km Walk", chest_no__isnull=False).last()
+        elif category == "5 Km Run":
+            ind_last = Individual.objects.filter(category="5 Km Run", chest_no__isnull=False).last()
+            members_last = Member.objects.filter(team_family__category="5 Km Run", chest_no__isnull=False).last()
+        elif category == "10 Km Run":
+            ind_last = Individual.objects.filter(category="10 Km Run", chest_no__isnull=False).last()
+            members_last = Member.objects.filter(team_family__category="10 Km Run", chest_no__isnull=False).last()
         else:
             return  # Exit if category is not recognized
 
         ind_last_no = ind_last.chest_no if ind_last else 0
         member_last_no = members_last.chest_no if members_last else 0
 
-        if category == "5 Km":
+        if category == "5 Km Walk":
             new_chest_no = max(ind_last_no, member_last_no) + 1 if ind_last_no or member_last_no else 1001
-        elif category == "10 Km":
+        elif category == "5 Km Run":
+            new_chest_no = max(ind_last_no, member_last_no) + 1 if ind_last_no or member_last_no else 1001
+        elif category == "10 Km Run":
             new_chest_no = max(ind_last_no, member_last_no) + 1 if ind_last_no or member_last_no else 5001
 
         for member in Member.objects.filter(team_family=team_family):
