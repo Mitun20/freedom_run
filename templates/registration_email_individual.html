@@ -13,6 +13,7 @@
     <p><strong>Event Details:</strong></p>
     <ul>
         <li><strong>Event Name:</strong> {{ event_name }}</li>
+        <li><strong>Location:</strong> {{ event_details.location }}</li>
         <li><strong>Date:</strong> {{ event_details.date }}</li>
         <li><strong>Time:</strong> {{ event_details.time }}</li>
     </ul>
@@ -21,8 +22,10 @@
         <li><strong>Name:</strong> {{ instance.name }}</li>
         <li><strong>Date of Birth:</strong> {{ instance.dob }}</li>
         <li><strong>Email:</strong> {{ instance.email }}</li>
+        <li><strong>Blood Group:</strong> {{ member.blood_group }}</li>
         <li><strong>Gender:</strong> {{ instance.get_gender_display }}</li>
-        <li><strong>Phone Number:</strong> {{ instance.phone_no }}</li>
+        <li><strong>Primary Number:</strong> {{ instance.phone_no }}</li>
+        <li><strong>Emergency Number:</strong> {{ member.additional_ph_no }}</li>
         <li><strong>Area:</strong> {{ instance.area }}</li>
         <li><strong>T-Shirt Size:</strong> {{ instance.tshirt_size }}</li>
         <li><strong>Paid Amount:</strong> {{ instance.paid_amount }}</li> 

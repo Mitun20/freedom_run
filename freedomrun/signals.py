@@ -121,7 +121,7 @@ def send_registration_email_individual(sender, instance, created, **kwargs):
         
         # Determine the event details based on the selected location
         #selected_location = instance.location
-        event_details =  {"date": "1st September 2024 (Sunday)", "time": "[5.30 am - 8.30 am]"}
+        event_details =  {"date": "9th March 2025 (Sunday)", "time": "[5.00 am - 8.30 am]","location": "Chennai"}
         #"Chennai": {"date": "1st September 2024 (Sunday)", "time": "[5.30 am - 8.30 am]"}
         
         #selected_event_details = event_details.get(selected_location, None)
@@ -133,7 +133,7 @@ def send_registration_email_individual(sender, instance, created, **kwargs):
         # Render the email HTML template with individual's details and event details
         html_content = render_to_string('registration_email_individual.html', {
             'instance': instance,
-            'event_name': "Freedom Run 2024 - For Cyber Crime Against Women",
+            'event_name': "Freedom Run 2025 - For Cyber Crime Against Women",
             'event_details':event_details,
         })
         
@@ -173,11 +173,11 @@ def send_registration_email_team_family(sender, instance, created, **kwargs):
                 # Determine the event details based on the first member's selected location
                 #event_details = {}
                 #if first_member.location == 'Coimbatore':
-                event_details = {"date": "1st September 2024 (Sunday)", "time": "[5.30 am - 8.30 am]" ,"location": "Coimbatore"}
+                event_details = {"date": "9th March 2025 (Sunday)", "time": "[5.00 am - 8.30 am]" ,"location": "Chennai"}
                 #elif first_member.location == 'Chennai':
                     #event_details = {"date": "1st September 2024 (Sunday)", "time": "[5.30 am - 8.30 am]","location": "Chennai"}
 
-                event_name = "Freedom Run 2024 - For Cyber Crime Against Women"
+                event_name = "Freedom Run 2025 - For Cyber Crime Against Women"
 
                 # Render the HTML email template
                 html_content = render_to_string('registration_email_team.html', {

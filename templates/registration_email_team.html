@@ -7,7 +7,7 @@
     <title>Registration Email</title>
 </head>
 <body style="color: black;">
-    <p>Thank you! {{ instance.team_name }} is registered for the We Wonder Women event: Freedom Run 2024 - For Cyber Crime Against Women. Your strides speak volumes, and your unwavering commitment can make a world of difference!</p>
+    <p>Thank you! {{ instance.team_name }} is registered for the We Wonder Women event: Freedom Run 2025 - For Cyber Crime Against Women. Your strides speak volumes, and your unwavering commitment can make a world of difference!</p>
     <p>Your participation makes a significant difference, and we can't wait to see you at the event. Your effort to contribute towards empowering women through education, skill-based training, and awareness sessions is much appreciated.</p>
     <p><strong>Here are the booking details:</strong></p>
 
@@ -33,9 +33,11 @@
         {% for member in instance.member_set.all %}
         <li><strong>Name:</strong> {{ member.name }}</li>
         <li><strong>Date of Birth:</strong> {{ member.dob }}</li>
+        <li><strong>Blood Group:</strong> {{ member.blood_group }}</li>
         <li><strong>Email:</strong> {{ member.email }}</li>
         <li><strong>Gender:</strong> {{ member.gender }}</li>
-        <li><strong>Phone Number:</strong> {{ member.phone_no }}</li>
+        <li><strong>Primary Number:</strong> {{ member.phone_no }}</li>
+        <li><strong>Emergency Number:</strong> {{ member.additional_ph_no }}</li>
         <li><strong>Area:</strong> {{ member.area }}</li>
         <li><strong>T-Shirt Size:</strong> {{ member.tshirt_size }}</li>
         <li><strong>Chest No:</strong> {{ member.chest_no }}</li>
