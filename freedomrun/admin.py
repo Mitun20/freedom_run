@@ -10,7 +10,7 @@ from django.urls import reverse
 from import_export.admin import ExportMixin, ExportActionMixin
 from import_export.widgets import ForeignKeyWidget
 from import_export import resources, fields
-
+from django.conf import settings
 admin.site.site_header = "Freedom Run"
 admin.site.site_title = "Freedom Run"
 admin.site.index_title = "Dashboard"
@@ -49,11 +49,11 @@ class IndividualAdmin(ImportExportModelAdmin):
             # Customize your email subject and body as needed
 
             subject = 'Payment Reminder'
-            edit_url = "http://register.freedomrun.co.in{}{}".format(reverse('edit-individual-registration', args=[individual.id]), "?type=Individual")
+            edit_url = "https://register.freedomrun.co.in{}{}".format(reverse('edit-individual-registration', args=[individual.id]), "?type=Individual")
 
             #edit_url = "http://127.0.0.1:8000{}?id={}&type=Individual".format(reverse('registration-status'), individual.id)
             message = f"Dear {individual.name},<br><br>This is a reminder that your payment for the event is still pending.<br><br>Please make sure to complete the payment as soon as possible to secure your participation.<br><br>Click <a href='{edit_url}'>here</a> to update your registration details."
-            from_email = 'admin@freedomrun.co.in'  # Update with your email
+            from_email = settings. DEFAULT_FROM_EMAIL# Update with your email
             to_email = [individual.email]
 
             # Send email
@@ -86,9 +86,9 @@ class Team_FamilyAdmin(ImportExportModelAdmin):
         for team in unpaid_teams:
             # Customize your email subject and body as needed
             subject = 'Payment Reminder'
-            edit_url = "http://register.freedomrun.co.in{}{}".format(reverse('edit-team-registration', args=[team.id]), "?type=Team")
+            edit_url = "{}{}".format(reverse('edit-team-registration', args=[team.id]), "?type=Team")
             message = f"Dear {team.team_name},<br><br>This is a reminder that your payment for the event is still pending.<br><br>Please make sure to complete the payment as soon as possible to secure your participation.<br><br>Click <a href='{edit_url}'>here</a> to update your registration details."
-            from_email = 'admin@freedomrun.co.in'  # Update with your email
+            from_email = settings.DEFAULT_FROM_EMAIL # Update with your email
             to_email = [team.first_member_email]
 
             # Send email

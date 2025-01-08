@@ -144,7 +144,7 @@ def send_registration_email_individual(sender, instance, created, **kwargs):
         msg = EmailMultiAlternatives(
             subject='Registration Successful',
             body=text_content,
-            from_email='admin@freedomrun.co.in',
+            from_email=settings.DEFAULT_FROM_EMAIL,
             to=[instance.email],
         )
         msg.attach_alternative(html_content, "text/html")  # Attach HTML content
@@ -193,7 +193,7 @@ def send_registration_email_team_family(sender, instance, created, **kwargs):
                 msg = EmailMultiAlternatives(
                     subject='Registration Successful',
                     body=text_content,  # Plain text version of the email
-                    from_email='admin@freedomrun.co.in',
+                    from_email=settings.DEFAULT_FROM_EMAIL,
                     to=[first_member_email],
                 )
                 msg.attach_alternative(html_content, "text/html")  # Attach HTML content
@@ -230,7 +230,7 @@ def send_registration_email_team_family(sender, instance, created, **kwargs):
         
                 """
             text_content = f"Dear {instance.team_name},\n\nCongratulations! You're now officially registered for the We Wonder Women event: {event_name}.\n\nWe are thrilled to have you join us in this empowering initiative dedicated to promoting women's safety and equality. Your participation makes a significant difference, and we can't wait to see you at the event."
-            
+
             msg = EmailMultiAlternatives(
                 subject='Registration Successful',
                 body=text_content,  # Plain text version of the email

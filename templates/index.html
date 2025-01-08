@@ -470,9 +470,13 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                                                         <div class="col-md-6">
                                                             <div class="form-group"><label>Location :<span
                                                                         class="text-danger">*</span></label>
-                                                                <input type="text" name="address[]"
+                                                                    <select class="form-control addresss" name="addresss[]"
+                                                                    id="addresss" required>
+                                                                    <option value="Chennai">Chennai</option>
+                                                                </select>
+                                                                <!-- <input type="text" name="address[]"
                                                                     class="form-control addresss"
-                                                                    placeholder=" Chennai" value="Chennai" readonly />
+                                                                    placeholder=" Chennai" value="Chennai" readonly/> -->
                                                                 <p class="addresscheck" style="color: red;"></p>
                                                             </div>
                                                         </div>
@@ -785,7 +789,7 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
         });
 
         $(document).ready(function () {
-            console.log('Script is running...');
+            // console.log('Script is running...');
 
             $('.membername').each(function (index) {
                 // Construct the new name attribute
@@ -1167,14 +1171,14 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                 } else if (category == "5 Km Run") {
                     amountPerMember = 1;
                 } else if (category == "10 Km Run") {
-                    amountPerMember = 700;
+                    amountPerMember = 1;
                 } else {
                     alert("Please select a valid category");
                     return;
                 }
 
                 var one = valid_memcount * amountPerMember; //5*400 = 2000//            //5*500 = 2500//
-                var two = one * 0.15;          //2000*0.1 = 200 //        //2500*0.20 = 500 //
+                var two = one * 0.2;          //2000*0.1 = 200 //        //2500*0.20 = 500 //
                 var three = valid_memcount * amountPerMember; // 5*500 //
                 let f_cost = one - two;
                 let discountedteamamount = amountPerMember;    // 1800                     // 2500-500 =  2000//                              
@@ -1760,9 +1764,9 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                 } else if (category === '5 Km Run') {
                     registrationFeeField.value = '1.00';
                 } else if (category === '10 Km Run') {
-                    registrationFeeField.value = '700.00';
+                    registrationFeeField.value = '1.00';
                 } else {
-                    registrationFeeField.value = '0.00'; // Default fee
+                    registrationFeeField.value = '1.00'; // Default fee
                 }
 
                 $("#individual_id").val('');
@@ -1789,7 +1793,7 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                 } else if (category == "5 Km Run") {
                     amountPerMember = 1;
                 } else if (category == "10 Km Run") {
-                    amountPerMember = 700;
+                    amountPerMember = 1;
                 } else {
                     alert("Please select a valid category");
                     return;
