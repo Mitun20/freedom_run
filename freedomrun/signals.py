@@ -127,9 +127,7 @@ def send_registration_email_individual(sender, instance, created, **kwargs):
         #selected_event_details = event_details.get(selected_location, None)
         
         # Ensure the selected location is valid
-        
         #if selected_event_details:
-    
         # Render the email HTML template with individual's details and event details
         html_content = render_to_string('registration_email_individual.html', {
             'instance': instance,
