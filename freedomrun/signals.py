@@ -140,7 +140,7 @@ def send_registration_email_individual(sender, instance, created, **kwargs):
         
         # Create the email message
         msg = EmailMultiAlternatives(
-            subject='Registration Successful',
+            subject='Individual Registration Successful',
             body=text_content,
             from_email=settings.DEFAULT_FROM_EMAIL,
             to=[instance.email],
@@ -189,7 +189,7 @@ def send_registration_email_team_family(sender, instance, created, **kwargs):
 
                 # Create the email message
                 msg = EmailMultiAlternatives(
-                    subject='Registration Successful',
+                    subject='Group/Family Registration Successful',
                     body=text_content,  # Plain text version of the email
                     from_email=settings.DEFAULT_FROM_EMAIL,
                     to=[first_member_email],
