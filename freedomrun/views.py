@@ -337,7 +337,7 @@ def ajax_team_submit(request):
             member_gender_list = request.POST.getlist(f'gender[]')
             member_phone_list = request.POST.getlist(f'phone[]')
             member_additional_ph_no_list = request.POST.getlist(f'additional_ph_no[]')
-            member_area_list = request.POST.getlist(f'address[]')
+            member_area_list = request.POST.getlist(f'address[]',"Chennai")
             member_tshirt_size_list = request.POST.getlist(f't_shirt_size[]')
             print(member_tshirt_size_list,'size')
             print(total_members,'total_members')
