@@ -2,52 +2,281 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Email</title>
+    <title>Email</title>
+    <style>
+        .container {
+            background-color: #f6f8fb;
+            margin: 0;
+            font-size: 15px;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .email-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 70px;
+            border: 1px solid #ddd;
+        }
+        .logo {
+            text-align: center;
+            margin-top: 50px ;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            height: 150px;
+            margin-top: 30px;
+        }
+        .header {
+            text-align: center;
+            font-size: 28px;
+            color: #5a5858;
+            font-family: Georgia, Arial, Helvetica, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .dates {
+            text-align: center;
+            font-size: 9px;
+            color: #999893;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+        .details-table {
+            width: 100%;
+            max-width: 620px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        .details-table td {
+            padding: 10px;
+            border: 3px solid white;
+            color: #5a5858;
+        }
+        
+        .footer {
+            font-size: 13px;
+            font-style: italic;
+            color: #777777;
+            margin-top: 20px;
+        }
+    </style>
 </head>
-<body style="color: black;">
-    <p>Thank you! {{ instance.team_name }} is registered for the We Wonder Women event: Freedom Run 2025 - For Cyber Crime Against Women. Your strides speak volumes, and your unwavering commitment can make a world of difference!</p>
-    <p>Your participation makes a significant difference, and we can't wait to see you at the event. Your effort to contribute towards empowering women through education, skill-based training, and awareness sessions is much appreciated.</p>
-    <p><strong>Here are the booking details:</strong></p>
-
-    <p><strong>Event Details:</strong></p>
-    <ul>
-        <li><strong>Event Name:</strong> {{ event_name }}</li>
-        <li><strong>Location:</strong> {{ event_details.location }}</li>
-        <li><strong>Date:</strong> {{ event_details.date }}</li>
-        <li><strong>Time:</strong> {{ event_details.time }}</li>
-    </ul>
-
-    <p><strong>Team Details:</strong></p>
-    <ul>
-        <li><strong>Team Name:</strong> {{ instance.team_name }}</li>
-        <li><strong>Organization Name:</strong> {{ instance.organization_name }}</li>
-        <li><strong>Number of Persons:</strong> {{ instance.no_of_persons }}</li>
-        <li><strong>Paid Amount:</strong> {{ instance.paid_amount }}</li>
-        <li><strong>Category:</strong> {{ instance.get_category_display }}</li>
-    </ul>
-
-    <p><strong>Members:</strong></p>
-    <ul>
-        {% for member in instance.member_set.all %}
-        <li><strong>Name:</strong> {{ member.name }}</li>
-        <li><strong>Date of Birth:</strong> {{ member.dob }}</li>
-        <li><strong>Blood Group:</strong> {{ member.blood_group}}</li>
-        <li><strong>Email:</strong> {{ member.email }}</li>
-        <li><strong>Gender:</strong> {{ member.gender }}</li>
-        <li><strong>Primary Number:</strong> {{ member.phone_no }}</li>
-        <li><strong>Emergency Number:</strong> {{ member.additional_ph_no}}</li>
-        <li><strong>Area:</strong> {{ member.area }}</li>
-        <li><strong>T-Shirt Size:</strong> {{ member.tshirt_size }}</li>
-        <li><strong>Chest No:</strong> {{ member.chest_no }}</li>
-        <br>
-        {% endfor %}
-    </ul>
-
+<body>
+    <div class="container">
+        <div class="logo">
+            <a href="#" target="_blank">
+                <img src="Images/freedomrun-logo.jpg" alt="logo" class="CToWUd" data-bit="iit">
+            </a>
+            <div style="border:1px solid #2db675;margin-top:10px"></div>
+        </div>
     
+        <div class="header">
+            <u></u>
+            Payment Receipt
+            <u></u>
+        </div>
+    
+        <div class="dates" id="date">
+        
+        </div>
+        <div class="email-container" >
+            
+            <br>
+            <div style="text-align: center;color: #777777;">
+                <td colspan="2" style="font-size:16px;margin-top:30px;color: #777777;text-align: center;line-height:1.5;">
+                    <p>Thank you! <span id="teamname" style="font-weight: bold;">{{ instance.team_name }}</span> is registered for the We Wonder Women event: Freedom Run 2025 - For Cyber Crime Against Women. Your strides speak volumes, and your unwavering commitment can make a world of difference!</p>
+                    <p>Your participation makes a significant difference, and we can't wait to see you at the event. Your effort to contribute towards empowering women through education, skill-based training, and awareness sessions is much appreciated.</p>
+                    <p><strong>Here are the booking details:</strong></p>
+                </td>
+            </div><br><br>
+            <table class="details-table">
+                <tr style="background: #f5f5f5;">
+                    <td>Event Name</td>
+                    <td id="eventname">{{ event_name }}</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td>Loction</td>
+                    <td id="location">{{ event_details.location }}</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td>Date</td>
+                    <td id="eventdate">{{ event_details.date }}</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td>Time</td>
+                    <td id="time">{{ event_details.time }}</td>
+                </tr>
+
+
+                <tr style="background: #f5f5f5;">
+                    <td>Team Name</td>
+                    <td id="team_name">{{ instance.team_name }}</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td>Organization Name</td>
+                    <td id="organizationname">{{ instance.organization_name }}</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td>Number of Persons</td>
+                    <td id="numberofpersons">{{ instance.no_of_persons }}</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td>Paid Amount</td>
+                    <td id="paidamount">{{ instance.paid_amount }}</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td>Category</td>
+                    <td id="category">{{ instance.get_category_display }}</td>
+                </tr>
+                
+
+
+                <p><strong>Members:</strong></p>
+            {% for member in instance.member_set.all %}
+            
+            <table class="details-table">
+                <tr style="background: #f5f5f5;">
+                    <td>Name:</td>
+                    <td id="name">{{ member.name }}</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td>Date of Birth:</td>
+                    <td id="dob">{{ member.dob }}</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td>Email</td>
+                    <td id="email">{{ member.email }}</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td>Blood Group:</td>
+                    <td id="bloodgroup">{{ member.blood_group }}</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td>Gender</td>
+                    <td id="gender">{{ member.get_gender_display }}</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td>Primary Number:</td>
+                    <td id="primarynumber">{{ member.phone_no }}</td>
+                </tr>
+                <tr style="background: #f5f5f5;"> 
+                    <td>Emergency Number:</td>
+                    <td id="emergencynumber">{{ member.additional_ph_no }}</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td>Area:</td>
+                    <td id="area">{{ member.area }}</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td>T-Shirt Size:</td>
+                    <td id="tshirtSize">{{ member.tshirt_size }}</td>
+                </tr>
+                
+                <tr style="background: #f5f5f5;">
+                    <td>Chest No:</td>
+                    <td id="chestno">{{ member.chest_no }}</td>
+                </tr>
+
+            </table>
+            <br>
+            {% endfor %}
+    
+            <div style="padding:50px;color: #777777;">
+                <!-- <p style="text-align:justify;">
+                    All contributions (including registration amount for the marathon) to Coimbatore Cancer Foundation are eligible for tax exemption under section 80G of the Income Tax Act 1961, vide order from the Department of Income Tax Registration Number <span id="registrationNumber">AAATC0792KF19912</span> valid from <span id="validFrom">AY22-23</span> to <span id="validTo">MAY 26-27</span>. The PAN Number of Coimbatore Cancer Foundation is <span id="panNumber">AAATC0792K</span>.
+                </p>
+                <p style="text-align:justify;">
+                    Your registration is subject to the Terms &amp; Conditions that you have accepted during the registration process. These&nbsp;
+                    <a href="https://register.freedomrun.co.in/terms-conditions/">Terms &amp; Conditions</a>
+                    &nbsp;are available on the event website.
+                </p> -->
+                <p style="text-align:justify;">
+                    Stay tuned to&nbsp;
+                    <a href="https://register.freedomrun.co.in/">freedomrun.co.in</a>
+                    &nbsp;for updates!!!
+                </p>
+            </div>
+    
+            <div class="footer">
+                We Wonder Woman Trust
+            </div>
+        </div>
+        <div style="text-align: center;padding: 50px 0;">
+            Email:<a href="mailto:freedomrun.co.in@gmail.com"> freedomrun.co.in@gmail.com</a>
+        </div>
+    </div>
+    
+
+    <!-- <script>
+        // Example data object
+        const registrationDetails = {
+            teamname:"Lightning Legs",
+            date:"Wednesday, march 29, 2025",
+
+            team_name: "Lightning Legs",
+            organizationname:"Unity of Change",
+            numberofpersons:"4",
+            paidamount:"1000",
+            category:"Under 20",
+            
+            eventname:"FreedomRun",
+            location:"Coimbatore",
+            eventdate:"March 29, 2025",
+            time:"9:00 AM",
+            
+            name: "Riya",
+            dob: "29/11/2002",
+            email: "riya123@gmail.com",
+            bloodgroup: "O+ve",
+            gender: "Female",
+            primarynumber: "91 9087878654",
+            emergencynumber: "91 9087234654",
+            area: "Coimbatore",
+            tshirtSize: "L",
+            chestno: "40",
+        };
+
+        // Function to update the registration details
+        function updateRegistrationDetails(details) {
+            document.getElementById('teamname').textContent = details.teamname;
+            document.getElementById('date').textContent = details.date;
+
+            document.getElementById('eventname').textContent = details.eventname;
+            document.getElementById('location').textContent = details.location;
+            document.getElementById('eventdate').textContent = details.eventdate;
+            document.getElementById('time').textContent = details.time;
+            
+            document.getElementById('team_name').textContent = details.team_name;
+            document.getElementById('organizationname').textContent = details.organizationname;
+            document.getElementById('numberofpersons').textContent = details.numberofpersons;
+            document.getElementById('paidamount').textContent = details.paidamount;
+            document.getElementById('category').textContent = details.category;
+            
+
+            document.getElementById('name').textContent = details.name;
+            document.getElementById('dob').textContent = details.dob;
+            document.getElementById('email').textContent = details.email;
+            document.getElementById('bloodgroup').textContent = details.bloodgroup;
+            document.getElementById('gender').textContent = details.gender;
+            document.getElementById('primarynumber').textContent = details.primarynumber;
+            document.getElementById('emergencynumber').textContent = details.emergencynumber;
+            document.getElementById('area').textContent = details.area;
+            document.getElementById('tshirtSize').textContent = details.tshirtSize;
+            document.getElementById('paidamounts').textContent = details.paidamounts;
+            document.getElementById('category').textContent = details.category;
+
+            document.getElementById('chestno').textContent = details.chestno;
+        }
+        
+
+        // Call the function with the example data
+        updateRegistrationDetails(registrationDetails);
+    </script> -->
 </body>
-</html> 
+</html>
 
-
-
+            
