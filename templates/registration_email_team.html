@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email</title>
+    <link rel="icon" type="image/x-icon" href="Images/favicon.png">
+    <title>Team Registration</title>
     <style>
-        .container {
+        body{
+            margin-top: 0px;
             background-color: #f6f8fb;
-            margin: 0;
+        }
+        .container {
+            width: auto;
             font-size: 15px;
             padding: 0;
             font-family: Arial, sans-serif;
+            max-width: 800px; /* Optional: to set a max width for the container */
+            margin: 0 auto;
         }
         .email-container {
             max-width: 700px;
             margin: 0 auto;
             background-color: #ffffff;
-            padding: 70px;
+            padding: 20px;
             border: 1px solid #ddd;
         }
         .logo {
@@ -56,12 +62,12 @@
             border: 3px solid white;
             color: #5a5858;
         }
-        
         .footer {
             font-size: 13px;
             font-style: italic;
             color: #777777;
             margin-top: 20px;
+            text-align: center;
         }
     </style>
 </head>
@@ -70,22 +76,16 @@
         <div class="logo">
             <a href="#" target="_blank">
                 <img src="https://register.freedomrun.co.in/static/img/email-logo.png" alt="logo" class="CToWUd" data-bit="iit">
+
             </a>
             <div style="border:1px solid #2db675;margin-top:10px"></div>
         </div>
     
-        <div class="header">
-            <u></u>
-            Payment Receipt
-            <u></u>
-        </div>
+        <div class="header">Payment Receipt</div>
     
-        <div class="dates" id="date">
-        
-        </div>
-        <div class="email-container" >
-            
-            <br>
+        <div class="dates" id="date"></div>
+
+        <div class="email-container">
             <div style="text-align: center;color: #777777;">
                 <td colspan="2" style="font-size:16px;margin-top:30px;color: #777777;text-align: center;line-height:1.5;">
                     <p>Thank you! <span id="teamname" style="font-weight: bold;">{{ instance.team_name }}</span> is registered for the We Wonder Women event: Freedom Run 2025 - For Cyber Crime Against Women. Your strides speak volumes, and your unwavering commitment can make a world of difference!</p>
@@ -93,7 +93,7 @@
                     <p><strong>Here are the booking details:</strong></p>
                 </td>
             </div><br><br>
-            <table class="details-table">
+            <table class="details-table" style="width: 100%;">
                 <tr style="background: #f5f5f5;">
                     <td>Event Name</td>
                     <td id="eventname">{{ event_name }}</td>
@@ -133,12 +133,11 @@
                     <td id="category">{{ instance.get_category_display }}</td>
                 </tr>
                 
-
-
-                <p><strong>Members:</strong></p>
+            </table>
+                <h4 style="text-align: center;">Members</h4>
             {% for member in instance.member_set.all %}
             
-            <table class="details-table">
+            <table class="details-table"  style="width: 100%;">
                 <tr style="background: #f5f5f5;">
                     <td>Name:</td>
                     <td id="name">{{ member.name }}</td>
@@ -184,99 +183,56 @@
             </table>
             <br>
             {% endfor %}
-    
-            <div style="padding:50px;color: #777777;">
-                <!-- <p style="text-align:justify;">
-                    All contributions (including registration amount for the marathon) to Coimbatore Cancer Foundation are eligible for tax exemption under section 80G of the Income Tax Act 1961, vide order from the Department of Income Tax Registration Number <span id="registrationNumber">AAATC0792KF19912</span> valid from <span id="validFrom">AY22-23</span> to <span id="validTo">MAY 26-27</span>. The PAN Number of Coimbatore Cancer Foundation is <span id="panNumber">AAATC0792K</span>.
-                </p>
-                <p style="text-align:justify;">
-                    Your registration is subject to the Terms &amp; Conditions that you have accepted during the registration process. These&nbsp;
-                    <a href="https://register.freedomrun.co.in/terms-conditions/">Terms &amp; Conditions</a>
-                    &nbsp;are available on the event website.
-                </p> -->
-                <p style="text-align:justify;">
-                    Stay tuned to&nbsp;
-                    <a href="https://register.freedomrun.co.in/">freedomrun.co.in</a>
-                    &nbsp;for updates!!!
-                </p>
+            <div style="text-align: center; color: #777777;">
+                <p>Stay tuned to <a href="https://register.freedomrun.co.in/">register.freedomrun.co.in</a> for updates!!!</p>
             </div>
-    
-            <div class="footer">
-                We Wonder Woman Trust
-            </div>
+
+            <div class="footer">We Wonder Woman Trust</div>
         </div>
+
         <div style="text-align: center;padding: 50px 0;">
-            Email:<a href="mailto:freedomrun.co.in@gmail.com"> freedomrun.co.in@gmail.com</a>
+            Email:<a href="mailto:freedomrun.co.in@gmail.com"> freedomrun.co.in@gmail.com</a><br><br>
+            Website:<a href="https://freedomrun.co.in/"> freedomrun.co.in</a>
         </div>
     </div>
-    
 
-    <!-- <script>
-        // Example data object
-        const registrationDetails = {
-            teamname:"Lightning Legs",
-            date:"Wednesday, march 29, 2025",
+    <script>
+        window.onload = function () {
+            const registrationDetails = {
+                teamname: "Lightning Legs",
+                date: "Wednesday, March 29, 2025",
+                eventname: "FreedomRun",
+                location: "Coimbatore",
+                eventdate: "March 29, 2025",
+                time: "9:00 AM",
+                team_name: "Lightning Legs",
+                organizationname: "Unity of Change",
+                numberofpersons: "4",
+                paidamount: "1000",
+                category: "Under 20",
+                name: "Riya",
+                dob: "29/11/2002",
+                email: "riya123@gmail.com",
+                bloodgroup: "O+ve",
+                gender: "Female",
+                primarynumber: "91 9087878654",
+                emergencynumber: "91 9087234654",
+                area: "Coimbatore",
+                tshirtSize: "L",
+                chestno: "40"
+            };
 
-            team_name: "Lightning Legs",
-            organizationname:"Unity of Change",
-            numberofpersons:"4",
-            paidamount:"1000",
-            category:"Under 20",
-            
-            eventname:"FreedomRun",
-            location:"Coimbatore",
-            eventdate:"March 29, 2025",
-            time:"9:00 AM",
-            
-            name: "Riya",
-            dob: "29/11/2002",
-            email: "riya123@gmail.com",
-            bloodgroup: "O+ve",
-            gender: "Female",
-            primarynumber: "91 9087878654",
-            emergencynumber: "91 9087234654",
-            area: "Coimbatore",
-            tshirtSize: "L",
-            chestno: "40",
+            function updateRegistrationDetails(details) {
+                Object.keys(details).forEach(id => {
+                    let element = document.getElementById(id);
+                    if (element) {
+                        element.textContent = details[id];
+                    }
+                });
+            }
+
+            updateRegistrationDetails(registrationDetails);
         };
-
-        // Function to update the registration details
-        function updateRegistrationDetails(details) {
-            document.getElementById('teamname').textContent = details.teamname;
-            document.getElementById('date').textContent = details.date;
-
-            document.getElementById('eventname').textContent = details.eventname;
-            document.getElementById('location').textContent = details.location;
-            document.getElementById('eventdate').textContent = details.eventdate;
-            document.getElementById('time').textContent = details.time;
-            
-            document.getElementById('team_name').textContent = details.team_name;
-            document.getElementById('organizationname').textContent = details.organizationname;
-            document.getElementById('numberofpersons').textContent = details.numberofpersons;
-            document.getElementById('paidamount').textContent = details.paidamount;
-            document.getElementById('category').textContent = details.category;
-            
-
-            document.getElementById('name').textContent = details.name;
-            document.getElementById('dob').textContent = details.dob;
-            document.getElementById('email').textContent = details.email;
-            document.getElementById('bloodgroup').textContent = details.bloodgroup;
-            document.getElementById('gender').textContent = details.gender;
-            document.getElementById('primarynumber').textContent = details.primarynumber;
-            document.getElementById('emergencynumber').textContent = details.emergencynumber;
-            document.getElementById('area').textContent = details.area;
-            document.getElementById('tshirtSize').textContent = details.tshirtSize;
-            document.getElementById('paidamounts').textContent = details.paidamounts;
-            document.getElementById('category').textContent = details.category;
-
-            document.getElementById('chestno').textContent = details.chestno;
-        }
-        
-
-        // Call the function with the example data
-        updateRegistrationDetails(registrationDetails);
-    </script> -->
+    </script>
 </body>
 </html>
-
-            
