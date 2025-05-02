@@ -1,4 +1,4 @@
-*.pyc
+**.pyc
 *~
 __pycache__
 myenv/
@@ -78,3 +78,5 @@ dmypy.json
 !.vscode/launch.json 
 !.vscode/extensions.json
 .history
+test.py
+www.sql
