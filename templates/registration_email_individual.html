@@ -162,7 +162,23 @@
                 </tr>
                 <tr style="background: #f5f5f5;">
                     <td>Chest No:</td>
-                    <td id="chestno">{{ instance.chest_no }}</td>
+                    {% if instance.area == "Coimbatore" %}
+                        {% if instance.get_category_display == "5 Kms Walk" %}
+                            <td id="chestno">CBE 5W {{ instance.chest_no }}</td>
+                        {% elif instance.get_category_display == "5 Kms Run" %}
+                            <td id="chestno">CBE 5R {{ instance.chest_no }}</td>
+                        {% else %}
+                            <td id="chestno">CBE 10R {{ instance.chest_no }}</td>
+                        {% endif %}
+                    {% elif instance.area == "Chennai" %}
+                        {% if instance.get_category_display == "5 Kms Walk" %}
+                            <td id="chestno">CHE 5W {{ instance.chest_no }}</td>
+                        {% elif instance.get_category_display == "5 Kms Run" %}
+                            <td id="chestno">CHE 5R {{ instance.chest_no }}</td>
+                        {% else %}
+                            <td id="chestno">CHE 10R {{ instance.chest_no }}</td>
+                        {% endif %}
+                    {% endif %}
                 </tr>
             </table>
             <div style="color: #777777;">
