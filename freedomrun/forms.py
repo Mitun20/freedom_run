@@ -38,13 +38,13 @@ class Individual_Form(forms.ModelForm):
         cleaned_data = super().clean()
         category = cleaned_data.get('category')
         if category == '5 km Walk':
-            cleaned_data['registration_fee'] = 1.00
+            cleaned_data['registration_fee'] = 500.00
         elif category == '5 km Run':
-            cleaned_data['registration_fee'] = 1.00
+            cleaned_data['registration_fee'] = 500.00
         elif category == '10 km Run':
-            cleaned_data['registration_fee'] = 1.00
+            cleaned_data['registration_fee'] = 700.00
         else:
-            cleaned_data['registration_fee'] = 1.00  # Default fee
+            cleaned_data['registration_fee'] = 500.00  # Default fee
         return cleaned_data
             
 class Individual_cbe_Form(forms.ModelForm): 
@@ -79,13 +79,13 @@ class Individual_cbe_Form(forms.ModelForm):
         cleaned_data = super().clean()
         category = cleaned_data.get('category')
         if category == '5 km Walk':
-            cleaned_data['registration_fee'] = 1.00
+            cleaned_data['registration_fee'] = 500.00
         elif category == '5 km Run':
-            cleaned_data['registration_fee'] = 1.00
+            cleaned_data['registration_fee'] = 500.00
         elif category == '10 km Run':
-            cleaned_data['registration_fee'] = 1.00
+            cleaned_data['registration_fee'] = 700.00
         else:
-            cleaned_data['registration_fee'] = 1.00  # Default fee
+            cleaned_data['registration_fee'] = 500.00  # Default fee
         return cleaned_data
 
 class TeamFamilyForm(forms.ModelForm):

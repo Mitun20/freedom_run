@@ -1758,13 +1758,13 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
             function updateRegistrationFee() {
                 const category = categoryField.value;
                 if (category === '5 Km Walk') {
-                    registrationFeeField.value = '1.00';
+                    registrationFeeField.value = '500.00';
                 } else if (category === '5 Km Run') {
-                    registrationFeeField.value = '1.00';
+                    registrationFeeField.value = '500.00';
                 } else if (category === '10 Km Run') {
-                    registrationFeeField.value = '1.00';
+                    registrationFeeField.value = '700.00';
                 } else {
-                    registrationFeeField.value = '1.00'; // Default fee
+                    registrationFeeField.value = '500.00'; // Default fee
                 }
 
                 $("#individual_id").val('');
@@ -1787,11 +1787,11 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                 var amountPerMember;
 
                 if (category == "5 Km Walk") {
-                    amountPerMember = 1;
+                    amountPerMember = 500;
                 } else if (category == "5 Km Run") {
-                    amountPerMember = 1;
+                    amountPerMember = 500;
                 } else if (category == "10 Km Run") {
-                    amountPerMember = 1;
+                    amountPerMember = 700;
                 } else {
                     alert("Please select a valid category");
                     return;
