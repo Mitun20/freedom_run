@@ -3,6 +3,7 @@ from . import views
 
 
 urlpatterns = [
+    path('',views.choice_location, name="registration"),
     path('chennai/',views.registration, name="home"),
     path('coimbatore/',views.registration_cbe, name="home_cbe"),
     path('ajax-submit',views.ajax_submit, name="ajax-submit"),
@@ -11,7 +12,7 @@ urlpatterns = [
     
     path('check-coupon',views.check_coupon, name="check-coupon"),
 
-    path('freedomrun/',views.registration, name="registration"),
+    # path('freedomrun/',views.registration, name="registration"),
     path('registration-status/', views.registration_status, name='registration-status'),
     path('team/', views.team_registration, name="team_registration"),
     path('individual/<int:individual_id>/edit/', views.edit_individual_registration, name='edit-individual-registration'),

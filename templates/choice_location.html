@@ -1,0 +1,275 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="-1">
+    <meta name="description" content="Contact Freedom Run 2025 by We Wonder Women - Get in touch with us for any queries">
+    <meta name="keywords" content="Freedom Run contact, marathon contact, running event contact, We Wonder Women contact">
+
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
+    <title>FREEDOM RUN 2025 | We Wonder Women | Contact Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="http://fonts.cdnfonts.com/css/digital-7-mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+    <link href="{% static 'style358e.css' %}" rel="stylesheet">
+
+    <style>
+        .ftr {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+    }
+    
+    .register {
+        padding-bottom: 100px; /* Adjust this to match footer height */
+    }
+        /* If you're not using Bootstrap's utility classes */
+.location-selection {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.location-selection h3 {
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.btn-group-location {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 576px) {
+    .btn-group-location {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-group-location .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+        .contact-container {
+            margin-top: 50px;
+            padding: 30px;
+            color: #333;
+        }
+
+        .contact-container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .contact-container h3 {
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        .address-section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info b {
+            color: #007BFF;
+        }
+
+        hr {
+            border-color: rgba(255, 255, 255, 0.3);
+            margin: 30px 0;
+        }
+
+        ul.ftr-list li {
+            display: inline-block;
+        }
+
+        ul.ftr-list li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        ul.ftr-list li a:hover {
+            color: #007BFF;
+        }
+
+        .firework {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.8);
+            animation: firework-animation 2s ease-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes firework-animation {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--x), var(--y));
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                margin-top: 30px;
+                padding: 15px;
+            }
+            
+            .address-section, .contact-info {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <div class="row header" id="myHeader">
+            <div class="col-md-3 col-sm-12 logo">
+                <a href="{% url 'registration' %}">
+                    <img src="{% static 'img/freedomrun-logo.png' %}" alt="Freedom Run Logo" class="img-fluid">
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-12 date-display">
+                <!-- Optional center content -->
+            </div>
+            <div class="col-md-3 col-sm-12 headerlogo-display">
+                <!-- <div><a target="_blank" href="https://wewonderwomen.in/"><img src="{% static 'img/www-logo-1.jpg' %}" alt="We Wonder Women Logo"></a></div>
+                <div><a target="_blank" href="https://bamevents.in/"><img src="{% static 'img/bam-logo.jpg' %}" alt="BAM Events Logo"></a></div>
+                <div><a target="_blank" href="https://irepute.in/"><img src="{% static 'img/repute-logo.webp' %}" alt="Repute Logo"></a></div> -->
+            </div>
+        </div>
+
+        <!-- Fireworks animation -->
+        <div class="firework" style="--x: -100px; --y: -100px; left: 20%; top: 30%;"></div>
+        <div class="firework" style="--x: 100px; --y: -150px; left: 40%; top: 40%;"></div>
+        <div class="firework" style="--x: -150px; --y: 100px; left: 60%; top: 50%;"></div>
+        <div class="firework" style="--x: 150px; --y: 100px; left: 80%; top: 30%;"></div>
+        <div class="firework" style="--x: -50px; --y: -200px; left: 30%; top: 60%;"></div>
+
+        <!-- Contact content -->
+        <div class="container-fluid register">
+            <div class="contact-container">
+                <div class="location-selection text-center">
+                    <h3 class="text-white mb-4">Select Your City</h3>
+                    <div class="btn-group-location d-flex justify-content-center gap-3">
+                        <button class="btn btn-primary btn-lg px-4" onclick="window.location.href='/chennai/'">Chennai</button>
+                        <button class="btn btn-primary btn-lg px-4" onclick="window.location.href='/coimbatore/'">Coimbatore</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <section class="ftr">
+            <div class="container">
+                <ul class="ftr-list">
+                    <li><a href="{% url 'contact-us' %}">Contact Us | </a></li>
+                    <li><a href="{% url 'terms-conditions' %}">Terms & Conditions | </a></li>
+                    <li><a href="{% url 'privacy-policy' %}">Privacy & Policy | </a></li>
+                    <li><a href="{% url 'cancellation-policy' %}">Cancellation Policy | </a></li>
+                    <li><a href="{% url 'shipping-policy' %}">Shipping Policy</a></li>
+                </ul>
+                <p style="color: white;">Copyright © 2025 Freedom Run - We Wonder Woman Trust.
+                    Concept by <a href="https://irepute.in" target="_blank" style="color: #007BFF;">repute</a>
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal for T-Shirt Size Chart (if needed) -->
+    <div class="modal fade" id="t-size" tabindex="-1" role="dialog" aria-labelledby="t-size" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="t-size">T-Shirt Size Chart</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <th>Brand Size</th>
+                                <th>Chest (inch)</th>
+                                <th>Length (inch)</th>
+                            </tr>
+                            <tr>
+                                <td>S</td>
+                                <td class="a-nowrap">38</td>
+                                <td class="a-nowrap">26</td>
+                            </tr>
+                            <tr>
+                                <td>M</td>
+                                <td class="a-nowrap">40</td>
+                                <td class="a-nowrap">27</td>
+                            </tr>
+                            <tr>
+                                <td>L</td>
+                                <td class="a-nowrap">42</td>
+                                <td class="a-nowrap">28</td>
+                            </tr>
+                            <tr>
+                                <td>XL</td>
+                                <td class="a-nowrap">44</td>
+                                <td class="a-nowrap">29</td>
+                            </tr>
+                            <tr>
+                                <td>2XL</td>
+                                <td class="a-nowrap">46</td>
+                                <td class="a-nowrap">30</td>
+                            </tr>
+                            <tr>
+                                <td>3XL</td>
+                                <td class="a-nowrap">48</td>
+                                <td class="a-nowrap">31</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'jquery-3.2.1.slim.min.js' %}"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+</body>
+
+</html>

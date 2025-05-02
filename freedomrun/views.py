@@ -586,3 +586,5 @@ def testing(request):
 def contact_us(request):
     return render(request, 'contact.html',)
 
+def choice_location(request):
+    return render(request, 'choice_location.html',)
