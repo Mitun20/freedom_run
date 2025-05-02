@@ -1165,18 +1165,18 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                 var amountPerMember;
 
                 if (category == "5 Km Walk") {
-                    amountPerMember = 1;
+                    amountPerMember = 500;
                 } else if (category == "5 Km Run") {
-                    amountPerMember = 1;
+                    amountPerMember = 500;
                 } else if (category == "10 Km Run") {
-                    amountPerMember = 1;
+                    amountPerMember = 700;
                 } else {
                     alert("Please select a valid category");
                     return;
                 }
 
                 var one = valid_memcount * amountPerMember; //5*400 = 2000//            //5*500 = 2500//
-                var two = one * 0.2;          //2000*0.1 = 200 //        //2500*0.20 = 500 //
+                var two = one * 0.15;          //2000*0.1 = 200 //        //2500*0.20 = 500 //
                 var three = valid_memcount * amountPerMember; // 5*500 //
                 let f_cost = one - two;
                 let discountedteamamount = amountPerMember;    // 1800                     // 2500-500 =  2000//                              
