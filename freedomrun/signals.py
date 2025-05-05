@@ -149,11 +149,12 @@ def send_registration_email_individual(sender, instance, created, **kwargs):
             to=[instance.email],
         )
         msg.attach_alternative(html_content, "text/html")  # Attach HTML content
+        admin_email = 'freedomrun.co.in@gmail.com'
         msg = EmailMultiAlternatives(
             subject='Individual Registration Successful',
             body=text_content,
             from_email=settings.DEFAULT_FROM_EMAIL,
-            to=[settings.DEFAULT_FROM_EMAIL],
+            to=[admin_email],
         )
         msg.attach_alternative(html_content, "text/html")
         # Send the email
@@ -207,12 +208,12 @@ def send_registration_email_team_family(sender, instance, created, **kwargs):
                     to=[first_member_email],
                 )
                 msg.attach_alternative(html_content, "text/html")  # Attach HTML content
-                
+                admin_email = 'freedomrun.co.in@gmail.com'
                 msg = EmailMultiAlternatives(
                     subject='Group/Family Registration Successful',
                     body=text_content,  # Plain text version of the email
                     from_email=settings.DEFAULT_FROM_EMAIL,
-                    to=[settings.DEFAULT_FROM_EMAIL],
+                    to=[admin_email],
                     
                 )
                 msg.attach_alternative(html_content, "text/html")
