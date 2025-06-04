@@ -150,7 +150,7 @@ EMAIL_PORT = 587  # Port for the SMTP server (587 for TLS)
 EMAIL_USE_TLS = True  # Set to True if the SMTP server requires TLS encryption
 EMAIL_USE_SSL = False  # Set to False since Gmail uses TLS
 EMAIL_HOST_USER = 'admin@freedomrun.co.in'
-EMAIL_HOST_PASSWORD = 'rktf nyzc pxsv ulyw'
+EMAIL_HOST_PASSWORD = 'tfwrrjucsfkzqelt'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
