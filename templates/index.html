@@ -173,7 +173,9 @@
                 <div class="tab-content" id="myTabContent">
                     <br>
                     <div class="text-center" style="font-weight:700; color:#e51270; font-size:18px;"> Team / Family
-                        Participants will Get 15% Discount.<br>
+                        Participants will Get 10% Discount.<br>
+                        <p>Early Bird Offer: Individuals who register before June 30 can use a special code to avail a 15% discount. (Applicable only for individual registrations)</p>
+                        <p>Note: Early bird discounts are not applicable for team or family registrations.</p>
                         <h2><b class="text-center" style="text-align:center; color:red;">Registration is open</b>
                         </h2>
                        <!-- <h5 style="text-align:center;color: #000 !important;"><b>Note: The 10 km run is exclusively for participants aged 18 to 45 years.</b></h5>-->
@@ -301,6 +303,7 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                         <h3 class="register-heading">Team Entry</h3>
                         <p class="register-heading" style=" color:#732a84; font-weight:600;">[Team should consists of
                             5-30 members]</p>
+                            <p class="register-heading" style=" color:#732a84; font-weight:600;">For group registrations with more than 10 members, please contact 89030 43777</p>
 
                         <form method="post" action="{% url 'team_registration' %}" id="teamform">
 
@@ -1167,16 +1170,16 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                 if (category == "5 Km Walk") {
                     amountPerMember = 500;
                 } else if (category == "5 Km Run") {
-                    amountPerMember = 500;
+                    amountPerMember = 600;
                 } else if (category == "10 Km Run") {
-                    amountPerMember = 700;
+                    amountPerMember = 800;
                 } else {
                     alert("Please select a valid category");
                     return;
                 }
 
                 var one = valid_memcount * amountPerMember; //5*400 = 2000//            //5*500 = 2500//
-                var two = one * 0.15;          //2000*0.1 = 200 //        //2500*0.20 = 500 //
+                var two = one * 0.10;          //2000*0.1 = 200 //        //2500*0.20 = 500 //
                 var three = valid_memcount * amountPerMember; // 5*500 //
                 let f_cost = one - two;
                 let discountedteamamount = amountPerMember;    // 1800                     // 2500-500 =  2000//                              
@@ -1257,6 +1260,16 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                 if (code) {
                     let couponApplied = false;
                     var indamount = 500; 
+                    if (category == '5 Km Walk') {
+                        indamount = 500;
+                    } else if (category == '5 Km Run') {
+                        indamount = 600;
+                    } else if (category == '10 Km Run') {
+                        indamount = 800;
+                    } else {
+                        alert('Please select a valid category');
+                        return;
+                    }
                     if (couponApplied) {
                         // If coupon has already been applied, show an alert or handle accordingly
                         alert('Coupon already applied. Please reset or remove the coupon before applying a new one.');
@@ -1760,9 +1773,9 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                 if (category === '5 Km Walk') {
                     registrationFeeField.value = '500.00';
                 } else if (category === '5 Km Run') {
-                    registrationFeeField.value = '500.00';
+                    registrationFeeField.value = '600.00';
                 } else if (category === '10 Km Run') {
-                    registrationFeeField.value = '700.00';
+                    registrationFeeField.value = '800.00';
                 } else {
                     registrationFeeField.value = '500.00'; // Default fee
                 }
@@ -1789,9 +1802,9 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                 if (category == "5 Km Walk") {
                     amountPerMember = 500;
                 } else if (category == "5 Km Run") {
-                    amountPerMember = 500;
+                    amountPerMember = 600;
                 } else if (category == "10 Km Run") {
-                    amountPerMember = 700;
+                    amountPerMember = 800;
                 } else {
                     alert("Please select a valid category");
                     return;
@@ -1801,7 +1814,7 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
             
 
                 var one = valid_memcount * amountPerMember; //5*400 = 2000//            //5*500 = 2500//
-                var two = one * 0.15;          //2000*0.1 = 200 //        //2500*0.20 = 500 //
+                var two = one * 0.10;          //2000*0.1 = 200 //        //2500*0.20 = 500 //
                 var three = valid_memcount * amountPerMember; // 5*500 //
                 let f_cost = one - two;
                 let discountedteamamount = amountPerMember;    // 1800                     // 2500-500 =  2000//                              

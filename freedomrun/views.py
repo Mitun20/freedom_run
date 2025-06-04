@@ -92,9 +92,9 @@ def team_registration(request):
         if category == '5 Km Walk':
             fee_per_member = 500
         elif category == '5 Km Run':
-            fee_per_member = 500
+            fee_per_member = 600
         elif category == '10 Km Run':
-            fee_per_member = 700
+            fee_per_member = 800
         else:
             fee_per_member = 500  
 
@@ -163,9 +163,9 @@ def edit_individual_registration(request, individual_id):
     if individual.category == "5 Km Walk":
         amount = 500
     elif individual.category == "5 Km Run":
-        amount = 500
+        amount = 600
     elif individual.category == "10 Km Run":
-        amount = 700
+        amount = 800
 
     individual.registration_fee = amount
     individual.save()
@@ -187,9 +187,9 @@ def edit_individual_registration(request, individual_id):
     if individual.category == "5 Km Walk":
         amount = 500
     elif individual.category == "5 Km Run":
-        amount = 500
+        amount = 600
     elif individual.category == "10 Km Run":
-        amount = 700
+        amount = 800
         
     print("edit_individual_registration Working")
 
