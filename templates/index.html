@@ -156,15 +156,7 @@
                         style="text-align:center">
                     <h4>Presents</h4>-->
                 </div>
-                    <div style="font-weight:500; color:#52036d; font-size:18px;">
-                        <ul>
-                            <li>Team / Family Participants will Get 10% Discount.</li>
-                            <li>Early Bird Offer: Individuals who register before June 30 can use a special code to avail a 15% discount. (Applicable only for individual registrations)</li>
-                            <li>Note: Early bird discounts are not applicable for team or family registrations.</li>
-                        </ul>
-                        <br>
-                       <!-- <h5 style="text-align:center;color: #000 !important;"><b>Note: The 10 KM run is exclusively for participants aged 18 to 45 years.</b></h5>-->
-                    </div>
+                    
                 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
 
                     <li class="nav-item">
@@ -186,9 +178,11 @@
                         </h2>
                     </div>
                     <br>
+                    
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        
                         <h3 class="register-heading">Individual Entry</h3>
-
+                        <p class="register-heading" style=" color:#732a84; font-weight:600;">Early Bird Offer: Individuals who register before June 30 <br> can use a special code (CODE - FR25CBE) to avail a 15% discount.</p>
 
                         <form method="post" action="" id="indform">
                             {% csrf_token %}
@@ -303,11 +297,11 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                     </div>
 
                     <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
+                        
                         <h3 class="register-heading">Team Entry</h3>
-                        <p class="register-heading" style=" color:#732a84; font-weight:600;">[Team should consists of
-                            5-30 members]</p>
-                            <p class="register-heading" style=" color:#732a84; font-weight:600;">For group registrations with more than 10 members, please contact 89030 43777</p>
+                        <p class="register-heading" style=" color:#732a84; font-weight:600;">Team / Family Participants will Get 10% Discount. <br>[Team should consists of
+                            5-30 members]
+                            <br>For group registrations with more than 10 members, please contact 89030 43777</p>
 
                         <form method="post" action="{% url 'team_registration' %}" id="teamform">
 
