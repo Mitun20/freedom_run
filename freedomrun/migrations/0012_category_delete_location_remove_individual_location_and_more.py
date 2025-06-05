@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='individual',
             name='category',
-            field=models.CharField(choices=[('', 'Choose category '), ('5 Km', '5 Kms'), ('10 Km', '10 Kms')], max_length=20, null=True),
+            field=models.CharField(choices=[('', 'Choose category '), ('5 KM', '5 KM'), ('10 KM', '10 KM')], max_length=20, null=True),
         ),
         migrations.AddField(
             model_name='individual',
@@ -47,7 +47,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='team_family',
             name='category',
-            field=models.CharField(choices=[('', 'Choose category '), ('5 Km', '5 Kms'), ('10 Km', '10 Kms')], max_length=20, null=True),
+            field=models.CharField(choices=[('', 'Choose category '), ('5 KM', '5 KM'), ('10 KM', '10 KM')], max_length=20, null=True),
         ),
         migrations.AlterField(
             model_name='coupen',

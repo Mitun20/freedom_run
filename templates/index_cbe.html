@@ -113,7 +113,7 @@
                     
                     
                         <div class="col-md-12 b-1">
-                            <h5 style="text-align:center;color: white !important;"><b>Note: The 10 km run is exclusively for participants aged 18 to 45 years.</b></h5>
+                            <h5 style="text-align:center;color: white !important;"><b>Note: The 10 KM run is exclusively for participants aged 18 to 45 years.</b></h5>
                         </div>
                    
 
@@ -122,7 +122,7 @@
                     <div class="col-md-6 b-1">
                         <a class="text-white text-center" style="text-align: center;" target="_blank" href="/static/Route%20map%205%20km.pdf">
                             <div class="p-3 b-box d-flex justify-content-center">
-                                Route Map 5 km
+                                Route Map 5 KM
                             </div>
                         </a>
                     </div>
@@ -131,7 +131,7 @@
                     <div class="col-md-6 b-1">
                         <a class="text-white" style="text-align: center;" target="_blank" href="/static/Route%20map%2010%20km.pdf">
                             <div class="p-3 b-box d-flex justify-content-center">
-                                Route Map 10 km
+                                Route Map 10 KM
                             </div>
                         </a>
                     </div>
@@ -156,12 +156,14 @@
                         style="text-align:center">
                     <h4>Presents</h4>-->
                 </div>
-                    <div class="text-center" style="font-weight:700; color:#e51270; font-size:18px;"> Team / Family
-                        Participants will Get 10% Discount.<br>
-                        <p>Early Bird Offer: Individuals who register before June 30 can use a special code to avail a 15% discount. (Applicable only for individual registrations)</p>
-                        <p>Note: Early bird discounts are not applicable for team or family registrations.</p>
+                    <div style="font-weight:500; color:#52036d; font-size:18px;">
+                        <ul>
+                            <li>Team / Family Participants will Get 10% Discount.</li>
+                            <li>Early Bird Offer: Individuals who register before June 30 can use a special code to avail a 15% discount. (Applicable only for individual registrations)</li>
+                            <li>Note: Early bird discounts are not applicable for team or family registrations.</li>
+                        </ul>
                         <br>
-                       <!-- <h5 style="text-align:center;color: #000 !important;"><b>Note: The 10 km run is exclusively for participants aged 18 to 45 years.</b></h5>-->
+                       <!-- <h5 style="text-align:center;color: #000 !important;"><b>Note: The 10 KM run is exclusively for participants aged 18 to 45 years.</b></h5>-->
                     </div>
                 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
 
@@ -181,7 +183,7 @@
                     <div class="text-center" style="font-weight:700; color:#e51270; font-size:18px;">
                         <h2><b class="text-center" style="text-align:center; color:red;">Registration is open</b>
                         </h2>
-                       <!-- <h5 style="text-align:center;color: #000 !important;"><b>Note: The 10 km run is exclusively for participants aged 18 to 45 years.</b></h5>-->
+                       <!-- <h5 style="text-align:center;color: #000 !important;"><b>Note: The 10 KM run is exclusively for participants aged 18 to 45 years.</b></h5>-->
                     </div>
 
                     <br>
@@ -335,9 +337,9 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                                             <select class="form-control category" name="category"
                                                 id="category" required>
                                                 <option value="">Select Category</option>
-                                                <option value="5 Km Walk" selected>5 Km Walk</option>
-                                                <option value="5 Km Run">5 Km Run</option>
-                                                <option value="10 Km Run">10 Km Run</option>
+                                                <option value="5 KM Walk" selected>5 KM Walk</option>
+                                                <option value="5 KM Run">5 KM Run</option>
+                                                <option value="10 KM Run">10 KM Run</option>
 
                                             </select>
                                         </div>
@@ -535,7 +537,7 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
 
                                         </div>
                                     </div>
-
+                                    <br>
                                     <div class="row display-box-containeer-">
                                         <div class="col-md-6">
                                             <div class="form-group"><label>Registration Fee : <span> </span></label>
@@ -726,7 +728,7 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                             </tr>
                         </table> -->
 
-                        <!-- <p style="text-align:center;"><b>Note: The 10 km run is exclusively for participants aged 18 to 45 years.</b></p> -->
+                        <!-- <p style="text-align:center;"><b>Note: The 10 KM run is exclusively for participants aged 18 to 45 years.</b></p> -->
 
                    
 
@@ -1170,11 +1172,11 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                 var category = $('#category').val();
                 var amountPerMember;
 
-                if (category == "5 Km Walk") {
+                if (category == "5 KM Walk") {
                     amountPerMember = 500;
-                } else if (category == "5 Km Run") {
+                } else if (category == "5 KM Run") {
                     amountPerMember = 600;
-                } else if (category == "10 Km Run") {
+                } else if (category == "10 KM Run") {
                     amountPerMember = 800;
                 } else {
                     alert("Please select a valid category");
@@ -1263,11 +1265,11 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                 if (code) {
                     let couponApplied = false;
                     var indamount = 500;
-                    if (category == '5 Km Walk') {
+                    if (category == '5 KM Walk') {
                         indamount = 500;
-                    } else if (category == '5 Km Run') {
+                    } else if (category == '5 KM Run') {
                         indamount = 600;
-                    } else if (category == '10 Km Run') {
+                    } else if (category == '10 KM Run') {
                         indamount = 800;
                     } else {
                         alert("Please select a valid category");
@@ -1773,11 +1775,11 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
             
             function updateRegistrationFee() {
                 const category = categoryField.value;
-                if (category === '5 Km Walk') {
+                if (category === '5 KM Walk') {
                     registrationFeeField.value = '500.00';
-                } else if (category === '5 Km Run') {
+                } else if (category === '5 KM Run') {
                     registrationFeeField.value = '600.00';
-                } else if (category === '10 Km Run') {
+                } else if (category === '10 KM Run') {
                     registrationFeeField.value = '800.00';
                 } else {
                     registrationFeeField.value = '500.00'; // Default fee
@@ -1802,11 +1804,11 @@ margin-right: 18px;background:#ed3c98;color:#fff;border:0px;">Size Chart</button
                 var category = $('#category').val();
                 var amountPerMember;
 
-                if (category == "5 Km Walk") {
+                if (category == "5 KM Walk") {
                     amountPerMember = 500;
-                } else if (category == "5 Km Run") {
+                } else if (category == "5 KM Run") {
                     amountPerMember = 600;
-                } else if (category == "10 Km Run") {
+                } else if (category == "10 KM Run") {
                     amountPerMember = 800;
                 } else {
                     alert("Please select a valid category");

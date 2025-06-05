@@ -89,11 +89,11 @@ def team_registration(request):
         print(category)
         print("#############################################")
     
-        if category == '5 Km Walk':
+        if category == '5 KM Walk':
             fee_per_member = 500
-        elif category == '5 Km Run':
+        elif category == '5 KM Run':
             fee_per_member = 600
-        elif category == '10 Km Run':
+        elif category == '10 KM Run':
             fee_per_member = 800
         else:
             fee_per_member = 500  
@@ -160,11 +160,11 @@ def team_registration(request):
 def edit_individual_registration(request, individual_id):
     individual = get_object_or_404(Individual, id=individual_id)
 
-    if individual.category == "5 Km Walk":
+    if individual.category == "5 KM Walk":
         amount = 500
-    elif individual.category == "5 Km Run":
+    elif individual.category == "5 KM Run":
         amount = 600
-    elif individual.category == "10 Km Run":
+    elif individual.category == "10 KM Run":
         amount = 800
 
     individual.registration_fee = amount
@@ -184,11 +184,11 @@ def edit_individual_registration(request, individual_id):
         form = Individual_Form(instance=individual)
 
 
-    if individual.category == "5 Km Walk":
+    if individual.category == "5 KM Walk":
         amount = 500
-    elif individual.category == "5 Km Run":
+    elif individual.category == "5 KM Run":
         amount = 600
-    elif individual.category == "10 Km Run":
+    elif individual.category == "10 KM Run":
         amount = 800
         
     print("edit_individual_registration Working")

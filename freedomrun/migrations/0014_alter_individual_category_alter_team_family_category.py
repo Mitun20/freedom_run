@@ -15,11 +15,11 @@ class Migration(migrations.Migration):
             field=models.CharField(
                 choices=[
                     ("", "Choose category "),
-                    ("5 Km Walk", "5 Kms Walk"),
-                    ("5 Km Run", "5 Kms Run"),
-                    ("10 Km Run", "10 Kms Run"),
+                    ("5 KM Walk", "5 KM Walk"),
+                    ("5 KM Run", "5 KM Run"),
+                    ("10 KM Run", "10 KM Run"),
                 ],
-                default="5 Km",
+                default="5 KM",
                 max_length=20,
                 null=True,
             ),
@@ -30,11 +30,11 @@ class Migration(migrations.Migration):
             field=models.CharField(
                 choices=[
                     ("", "Choose category "),
-                    ("5 Km Walk", "5 Kms Walk"),
-                    ("5 Km Run", "5 Kms Run"),
-                    ("10 Km Run", "10 Kms Run"),
+                    ("5 KM Walk", "5 KM Walk"),
+                    ("5 KM Run", "5 KM Run"),
+                    ("10 KM Run", "10 KM Run"),
                 ],
-                default="5 Km",
+                default="5 KM",
                 max_length=20,
                 null=True,
             ),

@@ -19,9 +19,9 @@ gender_choices = [
 ]
 category_choices =[
     ('', 'Choose category '),
-    ('5 Km Walk', '5 Kms Walk'),
-    ('5 Km Run', '5 Kms Run'),
-    ('10 Km Run', '10 Kms Run')
+    ('5 KM Walk', '5 KM Walk'),
+    ('5 KM Run', '5 KM Run'),
+    ('10 KM Run', '10 KM Run')
 ]
 '''location_choices = [
     ('', 'Choose location'),
@@ -62,7 +62,7 @@ class Individual(models.Model):
     email = models.EmailField()
     blood_group = models.CharField( max_length=10, choices=BLOOD_GROUP_CHOICES, default="O+",null=True,blank=True)
     #location = models.CharField(max_length=50,choices=location_choices)
-    category = models.CharField(max_length=20,choices=category_choices,null=True,default="5 Km Walk")
+    category = models.CharField(max_length=20,choices=category_choices,null=True,default="5 KM Walk")
     gender = models.CharField(max_length=1,choices=gender_choices)
     phone_no = models.CharField(max_length=10)
     additional_ph_no = models.CharField(max_length=10, blank=True, null=True)
@@ -89,7 +89,7 @@ class Individual(models.Model):
 class Team_Family(models.Model):
     team_name = models.CharField(max_length=250)
     organization_name = models.CharField(max_length=250,null=True,blank=True)
-    category = models.CharField(max_length=20,choices=category_choices,null=True,default="5 Km Walk")
+    category = models.CharField(max_length=20,choices=category_choices,null=True,default="5 KM Walk")
     no_of_persons = models.BigIntegerField()
     registered_date = models.DateField(auto_now=True,null=True)
     fees = models.IntegerField(default=0)

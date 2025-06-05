@@ -32,16 +32,16 @@ class Individual_Form(forms.ModelForm):
         for field_name in self.fields.keys():
             self.fields[field_name].widget.attrs.update({'class': 'form-control'}) 
 
-        self.fields['category'].choices = [choice for choice in self.fields['category'].choices] #if choice[0] != '10 Km'
+        self.fields['category'].choices = [choice for choice in self.fields['category'].choices] #if choice[0] != '10 KM'
     
     def clean(self):
         cleaned_data = super().clean()
         category = cleaned_data.get('category')
-        if category == '5 km Walk':
+        if category == '5 KM Walk':
             cleaned_data['registration_fee'] = 500.00
-        elif category == '5 km Run':
+        elif category == '5 KM Run':
             cleaned_data['registration_fee'] = 600.00
-        elif category == '10 km Run':
+        elif category == '10 KM Run':
             cleaned_data['registration_fee'] = 800.00
         else:
             cleaned_data['registration_fee'] = 500.00  # Default fee
@@ -73,16 +73,16 @@ class Individual_cbe_Form(forms.ModelForm):
         for field_name in self.fields.keys():
             self.fields[field_name].widget.attrs.update({'class': 'form-control'}) 
 
-        self.fields['category'].choices = [choice for choice in self.fields['category'].choices] #if choice[0] != '10 Km'
+        self.fields['category'].choices = [choice for choice in self.fields['category'].choices] #if choice[0] != '10 KM'
     
     def clean(self):
         cleaned_data = super().clean()
         category = cleaned_data.get('category')
-        if category == '5 km Walk':
+        if category == '5 KM Walk':
             cleaned_data['registration_fee'] = 500.00
-        elif category == '5 km Run':
+        elif category == '5 KM Run':
             cleaned_data['registration_fee'] = 600.00
-        elif category == '10 km Run':
+        elif category == '10 KM Run':
             cleaned_data['registration_fee'] = 800.00
         else:
             cleaned_data['registration_fee'] = 500.00  # Default fee
@@ -96,7 +96,7 @@ class TeamFamilyForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(TeamFamilyForm, self).__init__(*args, **kwargs)
-        self.fields['category'].choices = [choice for choice in self.fields['category'].choices if choice[0] != '10 Km']
+        self.fields['category'].choices = [choice for choice in self.fields['category'].choices if choice[0] != '10 KM']
     
 
 class MemberForm(forms.ModelForm):
