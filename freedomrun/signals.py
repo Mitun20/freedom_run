@@ -142,13 +142,14 @@ def send_registration_email_individual(sender, instance, created, **kwargs):
         text_content = strip_tags(html_content)
         
         # Create the email message
-        msg = EmailMultiAlternatives(
+        msg1 = EmailMultiAlternatives(
             subject='Individual Registration Successful',
             body=text_content,
             from_email=settings.DEFAULT_FROM_EMAIL,
             to=[instance.email],
         )
-        msg.attach_alternative(html_content, "text/html")  # Attach HTML content
+        msg1.attach_alternative(html_content, "text/html")  # Attach HTML content
+        msg1.send()
         admin_email = 'freedomrun.co.in@gmail.com'
         msg = EmailMultiAlternatives(
             subject='Individual Registration Successful',
@@ -201,13 +202,14 @@ def send_registration_email_team_family(sender, instance, created, **kwargs):
                 text_content = f"Dear {instance.team_name},\n\nCongratulations! You're now officially registered for the We Wonder Women event: {event_name}.\n\nWe are thrilled to have you join us in this empowering initiative dedicated to promoting women's safety and equality. Your participation makes a significant difference, and we can't wait to see you at the event."
 
                 # Create the email message
-                msg = EmailMultiAlternatives(
+                msg1 = EmailMultiAlternatives(
                     subject='Group/Family Registration Successful',
                     body=text_content,  # Plain text version of the email
                     from_email=settings.DEFAULT_FROM_EMAIL,
                     to=[first_member_email],
                 )
-                msg.attach_alternative(html_content, "text/html")  # Attach HTML content
+                msg1.attach_alternative(html_content, "text/html")  # Attach HTML content
+                msg1.send()
                 admin_email = 'freedomrun.co.in@gmail.com'
                 msg = EmailMultiAlternatives(
                     subject='Group/Family Registration Successful',
