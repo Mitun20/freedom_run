@@ -40,9 +40,9 @@ class Individual_Form(forms.ModelForm):
         if category == '5 KM Walk':
             cleaned_data['registration_fee'] = 500.00
         elif category == '5 KM Run':
-            cleaned_data['registration_fee'] = 600.00
+            cleaned_data['registration_fee'] = 500.00
         elif category == '10 KM Run':
-            cleaned_data['registration_fee'] = 800.00
+            cleaned_data['registration_fee'] = 700.00
         else:
             cleaned_data['registration_fee'] = 500.00  # Default fee
         return cleaned_data
@@ -81,9 +81,9 @@ class Individual_cbe_Form(forms.ModelForm):
         if category == '5 KM Walk':
             cleaned_data['registration_fee'] = 500.00
         elif category == '5 KM Run':
-            cleaned_data['registration_fee'] = 600.00
+            cleaned_data['registration_fee'] = 500.00
         elif category == '10 KM Run':
-            cleaned_data['registration_fee'] = 800.00
+            cleaned_data['registration_fee'] = 700.00
         else:
             cleaned_data['registration_fee'] = 500.00  # Default fee
         return cleaned_data
