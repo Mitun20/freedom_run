@@ -92,12 +92,19 @@
             
             <br>
             <div style="text-align: center;color: #777777;">
-                <td colspan="2" style="font-size:16px;margin-top:30px;color: #777777;text-align: center;line-height:1.5;">
-                    <p>Thank you! <span  style="font-weight: bold;">{{ instance.name }}</span> is registered for the We Wonder Women event: Freedom Run 2025 - For Cyber Crime Against Women. Your strides speak volumes, and your unwavering commitment can make a world of difference!</p>
-                    <p>Your participation makes a significant difference, and we can't wait to see you at the event. Your effort to contribute towards empowering women through education, skill-based training, and awareness sessions is much appreciated.</p>
-                    <p><strong>Here are the booking details:</strong></p>
-                </td>
-            </div><br><br>
+                <!-- <td colspan="2" style="font-size:16px;margin-top:30px;color: #777777;text-align: center;line-height:1.5;"> -->
+                    <p style="font-size:16px;margin-top:30px;color: #777777;text-align: center;line-height:1.5;">Thank you! <span  style="font-weight: bold;">{{ instance.name }}</span> is registered for the We Wonder Women event: Freedom Run 2025 - For Cyber Crime Against Women. Your strides speak volumes, and your unwavering commitment can make a world of difference!</p>
+                    <p style="font-size:16px;margin-top:30px;color: #777777;text-align: center;line-height:1.5;">Your participation makes a significant difference, and we can't wait to see you at the event. Your effort to contribute towards empowering women through education, skill-based training, and awareness sessions is much appreciated.</p>
+                    <p style="font-size:16px;margin-top:30px;color: #777777;text-align: center;line-height:1.5;"><strong>Here are the booking details:</strong></p>
+                <!-- </td> -->
+                {% if event_details.location == "Coimbatore" %}
+                <p style="font-weight: bold; color: #732a84; text-align: center; margin: 0;">
+                    T-shirt and bib number can be collected on 9th August at Fun Mall, 
+                    Coimbatore, between 11 AM - 8 PM.
+                </p>
+                {% endif %}
+            </div>
+
             <table class="details-table">
                 <tr style="background: #f5f5f5;">
                     <td>Event Name:</td>

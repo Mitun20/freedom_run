@@ -122,7 +122,12 @@ def send_registration_email_individual(sender, instance, created, **kwargs):
         # Determine the event details based on the selected location
         #selected_location = instance.location
         if instance.area == 'Coimbatore':
-            event_details =  {"date": "9th March 2025 (Sunday)", "time": "[5.00 am - 8.30 am]","location": "Coimbatore"}
+            if instance.category == "5 KM Walk":
+                event_details =  {"date": "August 10, 2025 (Sunday)", "time": "6:30 AM","location": "Coimbatore"}
+            elif instance.category == "5 KM Run":
+                event_details =  {"date": "August 10, 2025 (Sunday)", "time": "6:10 AM","location": "Coimbatore"}
+            else:
+                event_details =  {"date": "August 10, 2025 (Sunday)", "time": "5:45 AM","location": "Coimbatore"}
         else:         
             event_details =  {"date": "9th March 2025 (Sunday)", "time": "[5.00 am - 8.30 am]","location": "Chennai"}
         #"Chennai": {"date": "1st September 2024 (Sunday)", "time": "[5.30 am - 8.30 am]"}
@@ -183,7 +188,12 @@ def send_registration_email_team_family(sender, instance, created, **kwargs):
                 #event_details = {}
                 #if first_member.location == 'Coimbatore':
                 if first_member.area == 'Coimbatore':
-                    event_details =  {"date": "9th March 2025 (Sunday)", "time": "[5.00 am - 8.30 am]","location": "Coimbatore"}
+                    if instance.category == "5 KM Walk":
+                        event_details =  {"date": "August 10, 2025 (Sunday)", "time": "6:30 AM","location": "Coimbatore"}
+                    elif instance.category == "5 KM Run":
+                        event_details =  {"date": "August 10, 2025 (Sunday)", "time": "6:10 AM","location": "Coimbatore"}
+                    else:
+                        event_details =  {"date": "August 10, 2025 (Sunday)", "time": "5:45 AM","location": "Coimbatore"}
                 else:
                     event_details = {"date": "9th March 2025 (Sunday)", "time": "[5.00 am - 8.30 am]" ,"location": "Chennai"}
                 #elif first_member.location == 'Chennai':
