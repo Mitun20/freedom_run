@@ -1,5 +1,5 @@
 from django import forms
-from .models import Individual,Team_Family, Member ,Category
+from .models import Individual,Team_Family, Member ,Category, Tshirt_Size
 from django.contrib import admin
 from django.utils import timezone
 
@@ -23,6 +23,7 @@ class Individual_Form(forms.ModelForm):
         # Set the 'area' field to "Chennai" and make it readonly
         self.fields['area'].initial = 'Chennai'
         self.fields['area'].widget.attrs.update({'readonly': 'readonly', 'class': 'form-control'})
+        self.fields['tshirt_size'].queryset = Tshirt_Size.objects.all().order_by('length_inch')
         
         # Apply 'form-control' class to all fields
         for field_name in self.fields.keys():
@@ -64,6 +65,9 @@ class Individual_cbe_Form(forms.ModelForm):
         # Set the 'area' field to "Chennai" and make it readonly
         self.fields['area'].initial = 'Coimbatore'
         self.fields['area'].widget.attrs.update({'readonly': 'readonly', 'class': 'form-control'})
+        
+        # Sort tshirt_size in ascending order by name
+        self.fields['tshirt_size'].queryset = Tshirt_Size.objects.all().order_by('length_inch')
         
         # Apply 'form-control' class to all fields
         for field_name in self.fields.keys():
@@ -108,6 +112,7 @@ class MemberForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         # Set default value for 'area' field to "Chennai"
         self.fields['area'].initial = 'Chennai'
+        self.fields['tshirt_size'].queryset = Tshirt_Size.objects.all().order_by('length_inch')
 MemberFormSet = forms.modelformset_factory(Member, form=MemberForm, extra=1)
 
 class MemberFormCbe(forms.ModelForm):
@@ -119,4 +124,5 @@ class MemberFormCbe(forms.ModelForm):
         super().__init__(*args, **kwargs)
         # Set default value for 'area' field to "Chennai"
         self.fields['area'].initial = 'Coimbatore'
+        self.fields['tshirt_size'].queryset = Tshirt_Size.objects.all().order_by('length_inch')
 MemberFormSetCbe = forms.modelformset_factory(Member, form=MemberFormCbe, extra=1)

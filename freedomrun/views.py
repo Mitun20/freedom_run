@@ -38,7 +38,7 @@ def registration_status(request):
     return render(request, 'reg_status.html', context)
 
 def registration(request):
-    t_shirt_sizes = Tshirt_Size.objects.all()
+    t_shirt_sizes = Tshirt_Size.objects.all().order_by('length_inch')
 
     if request.method == "POST":
         form = Individual_Form(request.POST)
@@ -58,7 +58,7 @@ def registration(request):
     return render(request, 'index.html', context)
 
 def registration_cbe(request):
-    t_shirt_sizes = Tshirt_Size.objects.all()
+    t_shirt_sizes = Tshirt_Size.objects.all().order_by('length_inch')
 
     if request.method == "POST":
         form = Individual_cbe_Form(request.POST)
@@ -173,7 +173,7 @@ def edit_individual_registration(request, individual_id):
     if individual.is_paid: 
         return HttpResponse("Payment has already been made")
 
-    t_shirt_sizes = Tshirt_Size.objects.all()
+    t_shirt_sizes = Tshirt_Size.objects.all().order_by('length_inch')
     individual_id = individual_id
     if request.method == "POST":
         form = Individual_Form(request.POST, instance=individual)
@@ -214,7 +214,7 @@ def edit_team_registration(request, team_id):
         
     else:
         team_id=team_id
-        t_shirt_sizes = Tshirt_Size.objects.all()
+        t_shirt_sizes = Tshirt_Size.objects.all().order_by('length_inch')
         # Define formset with the appropriate queryset filter
         MemberFormSet = inlineformset_factory(Team_Family, Member, fields=('name', 'dob', 'email', 'gender', 'phone_no', 'area', 'tshirt_size'), extra=1)
 
@@ -252,7 +252,7 @@ def edit_team_registration_cbe(request, team_id):
         
     else:
         team_id=team_id
-        t_shirt_sizes = Tshirt_Size.objects.all()
+        t_shirt_sizes = Tshirt_Size.objects.all().order_by('length_inch')
         # Define formset with the appropriate queryset filter
         MemberFormSetCbe = inlineformset_factory(Team_Family, Member, fields=('name', 'dob', 'email', 'gender', 'phone_no', 'area', 'tshirt_size'), extra=1)
 
@@ -564,7 +564,7 @@ def terms_conditions(request):
 
 def testing(request):
 
-    t_shirt_sizes = Tshirt_Size.objects.all()
+    t_shirt_sizes = Tshirt_Size.objects.all().order_by('length_inch')
 
     if request.method == "POST":
         form = Individual_Form(request.POST)
