@@ -37,7 +37,7 @@ class IndividualResource(resources.ModelResource):
 class IndividualAdmin(ImportExportModelAdmin):
     resource_class = IndividualResource
     
-    search_fields = ['name', 'email','phone_no','tshirt_size','registered_date']
+    search_fields = ['name', 'email','phone_no','tshirt_size__name','registered_date']
     list_display = ['name','chest_no','category', 'email','phone_no','tshirt_size','registered_date','is_paid','paid_ref']
     list_filter = ['registered_date','is_paid','category']
 
@@ -123,7 +123,7 @@ class MemberResource(resources.ModelResource):
 
 class MemberAdmin(ImportExportModelAdmin):
     resource_class = MemberResource
-    search_fields = ['name', 'email','phone_no','tshirt_size','registered_date']
+    search_fields = ['name', 'email','phone_no','tshirt_size__name','registered_date','team_family__team_name']
     list_display = ['chest_no','team_family','name', 'email','phone_no','tshirt_size','registered_date']
     list_filter = ['team_family']
     
