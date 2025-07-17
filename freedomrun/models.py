@@ -49,6 +49,8 @@ class Coupen(models.Model):
     #percentage = models.IntegerField(default=0)
     percentage = models.DecimalField(max_digits=5, decimal_places=2, default=Decimal('0.00'))
     
+    def __str__(self):
+        return f"{self.code} - {self.percentage}%"
 
 class Tshirt_Size(models.Model):
     name = models.CharField(max_length=250)

@@ -128,10 +128,13 @@ class MemberAdmin(ImportExportModelAdmin):
     list_filter = ['team_family']
     
 
+class CoupenAdmin(ImportExportModelAdmin):
+    search_fields = ['code']
+
 #admin.site.register(Location)
 admin.site.register(Category)
 admin.site.register(Tshirt_Size)
-admin.site.register(Coupen)
+admin.site.register(Coupen, CoupenAdmin)
 admin.site.register(Individual,IndividualAdmin)
 admin.site.register(Team_Family,Team_FamilyAdmin)
 admin.site.register(Member,MemberAdmin)
