@@ -1,22 +1,19 @@
 from django.contrib import admin
-from django import forms
-from django.db import models
 from .models import Tshirt_Size, Individual, Team_Family, Member, Coupen ,Category
-from import_export.admin import ImportExportModelAdmin, ImportExportActionModelAdmin
+from import_export.admin import ImportExportModelAdmin
 from django.core.mail import send_mail
-from django.template.loader import render_to_string
 from django.utils import timezone
 from django.urls import reverse
-from import_export.admin import ExportMixin, ExportActionMixin
 from import_export.widgets import ForeignKeyWidget
 from import_export import resources, fields
 from django.conf import settings
+
 admin.site.site_header = "Freedom Run"
 admin.site.site_title = "Freedom Run"
 admin.site.index_title = "Dashboard"
 
 class IndividualResource(resources.ModelResource):
-    # Define fields to export and customize as needed
+
     tshirt_size = fields.Field(
         column_name='tshirt_size',
         attribute='tshirt_size',
