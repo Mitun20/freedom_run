@@ -588,3 +588,69 @@ def contact_us(request):
 
 def choice_location(request):
     return render(request, 'choice_location.html',)
+
+# from django.template.loader import render_to_string
+# from django.http import HttpResponse
+# from weasyprint import HTML
+
+# def generate_certificate_pdf(request,template bib_number):
+#     # lookup name by bib_number
+#     name = "John Doe"  # You can pull this from DB
+
+#     html_string = render_to_string('certificate_detail.html', {'participant_name': name})
+#     html = HTML(string=html_string, base_url=request.build_absolute_uri('/'))
+
+#     pdf = html.write_pdf()
+
+#     response = HttpResponse(pdf, content_type='application/pdf')
+#     response['Content-Disposition'] = f'filename="certificate_{bib_number}.pdf"'
+#     return response
+
+from django.template.loader import render_to_string
+from django.http import HttpResponse
+from weasyprint import HTML
+from django.conf import settings
+import os
+
+
+def generate_pdf(template_name, context):
+    html_string = render_to_string(template_name, context)
+    html = HTML(string=html_string, base_url=settings.STATIC_ROOT)
+    pdf = html.write_pdf()
+
+    return HttpResponse(pdf, content_type='application/pdf')
+
+def certificate(request):
+    if request.method == 'POST':
+        bib_number = request.POST.get('bib_number')
+        if not bib_number:
+            return render(request, 'e-certificate.html', {"error": "No BIB number provided"})
+
+        person = Individual.objects.filter(chest_no=bib_number).first()
+        category = None
+        name = None
+
+        if person:
+            name = person.name
+            category = person.category
+        else:
+            member = Member.objects.filter(chest_no=bib_number).first()
+            if member:
+                name = member.name
+                category = member.team_family.category
+
+        if category and name:
+            template_map = {
+                "5 KM Walk": "certificates/5km-walk.html",
+                "5 KM Run": "certificates/5km-run.html",
+                "10 KM Run": "certificates/10km-run.html"
+            }
+            template = template_map.get(category)
+            if template:
+                context = {"name": name}
+                return generate_pdf(template, context)
+
+        return render(request, 'e-certificate.html', {"error": "BIB number not found"})
+
+    return render(request, 'e-certificate.html')
+

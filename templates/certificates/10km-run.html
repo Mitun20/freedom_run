@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Certificate Print</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #eee;
+      font-family: sans-serif;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 210mm;
+      height: 297mm;
+      background-image: url('http://127.0.0.1:8000/static/img/10KM-RUN-CERTIFICATE-FREEDOM-RUN-COIMBATORE.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: relative;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .name-input {
+      position: absolute;
+      top: 47%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 22px;
+      text-align: center;
+      border: none;
+      border-bottom: 2px solid #000;
+      background: transparent;
+      outline: none;
+      width: 60%;
+      font-weight: bold;
+    }
+
+    .print-btn {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #d31986;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    @media print {
+      html, body {
+        background: none;
+        margin: 0;
+        padding: 0;
+        height: auto;
+      }
+
+      .print-btn {
+        display: none;
+      }
+
+      .wrapper {
+        display: block;
+      }
+
+      .container {
+        margin: 0;
+        box-shadow: none;
+        page-break-inside: avoid;
+      }
+
+      .name-input {
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="container">
+      <input type="text" class="name-input" value="{{name}}" placeholder="Enter Participant's Name" />
+    </div>
+  </div>
+
+</body>
+</html>

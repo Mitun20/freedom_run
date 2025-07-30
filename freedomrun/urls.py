@@ -6,6 +6,7 @@ urlpatterns = [
     path('',views.choice_location, name="registration"),
     path('chennai/',views.registration, name="home"),
     path('coimbatore/',views.registration_cbe, name="home_cbe"),
+    path('e-certificate/',views.certificate, name=""),
     path('ajax-submit',views.ajax_submit, name="ajax-submit"),
     path('ajax-team-submit',views.ajax_team_submit, name="ajax-team-submit"),
     path('ajax-team-submit-cbe',views.ajax_team_submit_cbe, name="ajax-team-submit-cbe"),
@@ -27,6 +28,9 @@ urlpatterns = [
     path('terms-conditions/',views.terms_conditions, name="terms-conditions"),
     path('testing/',views.testing, name="testing"),
     path('contact-us/',views.contact_us, name="contact-us"),
+
+
+
 
     
 ]

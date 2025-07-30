@@ -1,0 +1,191 @@
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+
+<!-- Mirrored from wewonderwomen.in/freedomrun/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Mar 2024 08:31:15 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+<head>
+
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="Cache-control" content="no-cache">
+
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <meta http-equiv="Expires" content="-1">
+
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
+    <title>FREEDOM RUN 2025 | We Wonder Women | Coimbatore </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="http://fonts.cdnfonts.com/css/digital-7-mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+    <link href="{% static 'style358e.css' %}" rel="stylesheet"> 
+
+    <style>
+        #usercheck {
+            display: none;
+        }
+
+        #couponcheck {
+            display: none;
+        }
+
+        ul.ftr-list li {
+            display: inline-block;
+        }
+
+        ul.ftr-list li a {
+            color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            width: 220px;
+            margin-right: 10px;
+        }
+
+        button.submit {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff0080;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .certificate-section {
+            background: #fff;
+            border-radius: 20px;
+            /* max-width: 800px;*/
+            width: 100%;
+            margin: 0 auto; 
+            /* height: 50vh; */
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            color: #222;
+        }
+
+        .certificate-icon {
+            /* width: 80px;
+            height: 80px; */
+            margin-bottom: 10px;
+        }
+
+        .certificate-btn {
+            padding: 10px 25px;
+            font-size: 16px;
+            border: 2px solid #ff0080;
+            background-color: white;
+            color: #ff0080;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .caption {
+            font-size: 14px;
+            color: #888;
+            margin-top: 12px;
+        }
+        .mt-35{margin-top:35px;}
+    </style>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2DQB30MP2D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2DQB30MP2D');
+</script>
+
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row header" id="myHeader">
+            <div class="col-md-3 col-sm-12 logo">
+                <a href="{% url 'registration' %}">
+                    <img src="/static/img/freedomrun-logo.png">
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-12 date-display">                
+            </div>
+            <div class="col-md-3 col-sm-12 headerlogo-display">
+            </div>
+        </div>
+    </div>
+    <div class="firework"></div>
+    <div class="firework"></div>
+    <div class="firework"></div>
+    <div class="firework"></div>
+    <div class="firework"></div>
+
+
+    <div class="container-fluid register">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12" style="color:#fff; margin-top:40px;">
+                <h1>E-Certificate</h1>
+                <p> </p>
+
+                <div class="d-flex justify-content-center">
+                    <div class="certificate-section text-center p-4">
+
+                        <form class="form-group mt-35" method="post">
+                            {% csrf_token %}
+                            <div class="form-group mt-35">
+                            <label for="bib_number">Enter Your BIB Number</label>
+                            <input type="text" name="bib_number" id="bib_number" placeholder="BIB Number" required>
+                            <button type="submit" class="submit">Submit</button>
+                            </div>
+                        </form>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135769.png" alt="Certificate"
+                          width="500px" height="650px" class="certificate-icon" />
+                        <br>
+                        <button class="certificate-btn">Certificate</button>
+                        <p class="caption">Download Your Certificate after the Run</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br><br>
+    </div>
+
+    <section class="ftr">
+        <div class="container">
+            <ul class="ftr-list">
+                <li><a href="{% url 'contact-us' %}">Contact Us | </a></li>
+                <li><a href="{% url 'terms-conditions' %}">Terms & Conditions | </a></li>
+                <li><a href="{% url 'privacy-policy' %}">Privacy & Policy | </a></li>
+                <li><a href="{% url 'cancellation-policy' %}">Cancellation Policy | </a></li>
+                <li><a href="{% url 'shipping-policy' %}">Shipping Policy</a></li>
+            </ul>
+            Copyright © 2025 Freedom Run - We Wonder Woman Trust. Concept by <a href="https://irepute.in"
+                target="_blank">repute</a>
+            </div>
+    </section>
+
+</body>
+
+<!-- Mirrored from wewonderwomen.in/freedomrun/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Mar 2024 08:31:26 GMT -->
+
+</html>
