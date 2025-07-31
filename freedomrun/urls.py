@@ -6,7 +6,8 @@ urlpatterns = [
     path('',views.choice_location, name="registration"),
     path('chennai/',views.registration, name="home"),
     path('coimbatore/',views.registration_cbe, name="home_cbe"),
-    path('e-certificate/',views.certificate, name=""),
+    path('e-certificate/', views.certificate, name='e-certificate'),
+    path('certificate-preview/<str:bib_number>/', views.certificate_preview, name='certificate-preview'),
     path('ajax-submit',views.ajax_submit, name="ajax-submit"),
     path('ajax-team-submit',views.ajax_team_submit, name="ajax-team-submit"),
     path('ajax-team-submit-cbe',views.ajax_team_submit_cbe, name="ajax-team-submit-cbe"),
@@ -29,7 +30,8 @@ urlpatterns = [
     path('testing/',views.testing, name="testing"),
     path('contact-us/',views.contact_us, name="contact-us"),
 
-
+    path('certificate-preview/<int:bib_number>/', views.certificate_preview, name='certificate-preview'),
+    path('certificate-download/<int:bib_number>/', views.download_certificate, name='certificate-download'),
 
 
     

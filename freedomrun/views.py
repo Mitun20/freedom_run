@@ -8,6 +8,7 @@ from decimal import Decimal
 from django.http import JsonResponse, HttpResponse
 from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
 
 # Create your views here.
 def registration_status(request):
@@ -635,22 +636,107 @@ def certificate(request):
             category = person.category
         else:
             member = Member.objects.filter(chest_no=bib_number).first()
+            print(member.name)
+            print(member.team_family)
             if member:
                 name = member.name
                 category = member.team_family.category
 
         if category and name:
-            template_map = {
-                "5 KM Walk": "certificates/5km-walk.html",
-                "5 KM Run": "certificates/5km-run.html",
-                "10 KM Run": "certificates/10km-run.html"
-            }
-            template = template_map.get(category)
-            if template:
-                context = {"name": name}
-                return generate_pdf(template, context)
+            return render(request, 'e-certificate.html', {"bib_number": bib_number})
 
         return render(request, 'e-certificate.html', {"error": "BIB number not found"})
 
     return render(request, 'e-certificate.html')
 
+
+def certificate_preview(request, bib_number):
+    person = Individual.objects.filter(chest_no=bib_number).first()
+    category = None
+    name = None
+
+    if person:
+        name = person.name
+        category = person.category
+    else:
+        member = Member.objects.filter(chest_no=bib_number).first()
+        if member:
+            name = member.name
+            category = member.team_family.category
+
+    template_map = {
+        "5 km walk": "certificates/5km-walk.html",
+        "5 km run": "certificates/5km-run.html",
+        "10 km run": "certificates/10km-run.html",
+    }
+
+    template_name = template_map.get(category.lower() if category else None)
+    if not template_name:
+        return HttpResponse("Invalid category", status=400)
+
+    # Check if we want PDF or HTML
+    if request.GET.get('format') == 'pdf':
+        html_string = render_to_string(template_name, {"name": name})
+        html = HTML(string=html_string, base_url=request.build_absolute_uri())
+        pdf = html.write_pdf()
+
+        response = HttpResponse(pdf, content_type="application/pdf")
+        response['Content-Disposition'] = 'inline; filename="certificate.pdf"'
+        return response
+    else:
+        # Return HTML version for iframe
+        return render(request, template_name, {"name": name})
+    
+from django.http import HttpResponse
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from weasyprint import HTML, CSS
+import tempfile
+
+def download_certificate(request, bib_number):
+    # Lookup user
+    print(bib_number)
+    person = Individual.objects.filter(chest_no=bib_number).first()
+    print(person)
+    if not person:
+        member = Member.objects.filter(chest_no=bib_number).first()
+        if member:
+            person = member
+            category = member.team_family.category
+        else:
+            return HttpResponse("Participant not found")
+
+    name = person.name
+    category = getattr(person, 'category')
+
+    template_map = {
+        "5 km walk": "certificates/5km-walk.html",
+        "5 km run": "certificates/5km-run.html",
+        "10 km run": "certificates/10km-run.html"
+    }
+
+    template = template_map.get(category.lower())
+    if not template:
+        return HttpResponse("Invalid category")
+
+    context = {'name': name}
+
+    # Render to HTML and PDF
+    html_string = render_to_string(template, context)
+    pdf = HTML(string=html_string, base_url=request.build_absolute_uri()).write_pdf(stylesheets=[CSS(string='@page { size: A4; margin: 0; }')])
+
+    # Email part (assuming person.email exists)
+    if hasattr(person, 'email') and person.email:
+        email = EmailMessage(
+            subject='Your Freedom Run 2025 Certificate',
+            body='Please find your attached certificate.',
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[person.email]
+        )
+        email.attach(f'{name}-certificate.pdf', pdf, 'application/pdf')
+        email.send()
+
+    # Send as browser download
+    response = HttpResponse(pdf, content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename="{name}-certificate.pdf"'
+    return response

@@ -72,6 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wewonderwomen.wsgi.application'
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -83,8 +84,8 @@ DATABASES = {
         'NAME': 'www',
         'USER': 'repute',
         'PASSWORD': 'PNR4erp!!!',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
         'CONN_HEALTH_CHECKS': True,
         'CONN_MAX_AGE': 60,
         'OPTIONS': {

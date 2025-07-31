@@ -21,12 +21,12 @@
     <link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
     <title>FREEDOM RUN 2025 | We Wonder Women | Coimbatore </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <link href="http://fonts.cdnfonts.com/css/digital-7-mono" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
-    <link href="{% static 'style358e.css' %}" rel="stylesheet"> 
+    <link href="{% static 'style358e.css' %}" rel="stylesheet">
 
     <style>
         #usercheck {
@@ -73,7 +73,7 @@
             border-radius: 20px;
             /* max-width: 800px;*/
             width: 100%;
-            margin: 0 auto; 
+            margin: 0 auto;
             /* height: 50vh; */
             padding: 40px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -101,19 +101,22 @@
             color: #888;
             margin-top: 12px;
         }
-        .mt-35{margin-top:35px;}
+
+        .mt-35 {
+            margin-top: 35px;
+        }
     </style>
 
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2DQB30MP2D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2DQB30MP2D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-2DQB30MP2D');
-</script>
+        gtag('config', 'G-2DQB30MP2D');
+    </script>
 
 
 </head>
@@ -126,7 +129,7 @@
                     <img src="/static/img/freedomrun-logo.png">
                 </a>
             </div>
-            <div class="col-md-6 col-sm-12 date-display">                
+            <div class="col-md-6 col-sm-12 date-display">
             </div>
             <div class="col-md-3 col-sm-12 headerlogo-display">
             </div>
@@ -151,16 +154,28 @@
                         <form class="form-group mt-35" method="post">
                             {% csrf_token %}
                             <div class="form-group mt-35">
-                            <label for="bib_number">Enter Your BIB Number</label>
-                            <input type="text" name="bib_number" id="bib_number" placeholder="BIB Number" required>
-                            <button type="submit" class="submit">Submit</button>
+                                <label for="bib_number">Enter Your BIB Number</label>
+                                <input type="text" name="bib_number" id="bib_number" placeholder="BIB Number" required>
+                                <button type="submit" class="submit">Submit</button>
                             </div>
                         </form>
-                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135769.png" alt="Certificate"
-                          width="500px" height="650px" class="certificate-icon" />
+                        {% if bib_number %}
+                        <iframe src="{% url 'certificate-preview' bib_number %}"
+                                width="794"
+                                height="1123"
+                                style="border: none; box-shadow: 0 0 10px rgba(0,0,0,0.1); overflow: hidden;"
+                                class="certificate-icon">
+                        </iframe>
                         <br>
-                        <button class="certificate-btn">Certificate</button>
-                        <p class="caption">Download Your Certificate after the Run</p>
+                        <form action="{% url 'certificate-download' bib_number %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="certificate-btn">Download Certificate</button>
+                        </form>
+
+                        {% else %}
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135769.png"
+                            width="100px" height="100px" class="certificate-icon" />
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -181,7 +196,7 @@
             </ul>
             Copyright © 2025 Freedom Run - We Wonder Woman Trust. Concept by <a href="https://irepute.in"
                 target="_blank">repute</a>
-            </div>
+        </div>
     </section>
 
 </body>
