@@ -30,8 +30,8 @@ urlpatterns = [
     path('testing/',views.testing, name="testing"),
     path('contact-us/',views.contact_us, name="contact-us"),
 
-    path('certificate-preview/<int:bib_number>/', views.certificate_preview, name='certificate-preview'),
-    path('certificate-download/<int:bib_number>/', views.download_certificate, name='certificate-download'),
+    path('certificate-preview/<str:bib_number>/<str:name>/', views.certificate_preview, name='certificate-preview'),
+    path('certificate-download/<str:bib_number>/<str:name>/', views.download_certificate, name='certificate-download'),
 
 
     

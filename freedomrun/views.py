@@ -624,10 +624,11 @@ def generate_pdf(template_name, context):
 def certificate(request):
     if request.method == 'POST':
         bib_number = request.POST.get('bib_number')
+        name = request.POST.get('name')
         if not bib_number:
             return render(request, 'e-certificate.html', {"error": "No BIB number provided"})
 
-        person = Individual.objects.filter(chest_no=bib_number).first()
+        person = Individual.objects.filter(chest_no=bib_number,name=name).first()
         category = None
         name = None
 
@@ -636,22 +637,23 @@ def certificate(request):
             category = person.category
         else:
             member = Member.objects.filter(chest_no=bib_number).first()
-            print(member.name)
-            print(member.team_family)
+            
             if member:
+                print(member.name)
+                print(member.team_family)
                 name = member.name
                 category = member.team_family.category
 
         if category and name:
-            return render(request, 'e-certificate.html', {"bib_number": bib_number})
+            return render(request, 'e-certificate.html', {"bib_number": bib_number,"name":name})
 
-        return render(request, 'e-certificate.html', {"error": "BIB number not found"})
+        return render(request, 'e-certificate.html', {"error": "Matching Data Not Found"})
 
     return render(request, 'e-certificate.html')
 
 
-def certificate_preview(request, bib_number):
-    person = Individual.objects.filter(chest_no=bib_number).first()
+def certificate_preview(request, bib_number,name):
+    person = Individual.objects.filter(chest_no=bib_number,name=name).first()
     category = None
     name = None
 
@@ -659,7 +661,7 @@ def certificate_preview(request, bib_number):
         name = person.name
         category = person.category
     else:
-        member = Member.objects.filter(chest_no=bib_number).first()
+        member = Member.objects.filter(chest_no=bib_number,name=name).first()
         if member:
             name = member.name
             category = member.team_family.category
@@ -693,13 +695,13 @@ from django.template.loader import render_to_string
 from weasyprint import HTML, CSS
 import tempfile
 
-def download_certificate(request, bib_number):
+def download_certificate(request, bib_number,name):
     # Lookup user
     print(bib_number)
-    person = Individual.objects.filter(chest_no=bib_number).first()
+    person = Individual.objects.filter(chest_no=bib_number,name=name).first()
     print(person)
     if not person:
-        member = Member.objects.filter(chest_no=bib_number).first()
+        member = Member.objects.filter(chest_no=bib_number,name=name).first()
         if member:
             person = member
             category = member.team_family.category
