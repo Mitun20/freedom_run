@@ -639,8 +639,6 @@ def certificate(request):
             member = Member.objects.filter(chest_no=bib_number).first()
             
             if member:
-                print(member.name)
-                print(member.team_family)
                 name = member.name
                 category = member.team_family.category
 
