@@ -147,7 +147,7 @@
             <div class="col-md-12 col-sm-12 col-lg-12" style="color:#fff; margin-top:40px;">
                 <h1>E-Certificate</h1>
                 <p> </p>
-
+                {% if date %}
                 <div class="d-flex justify-content-center">
                     <div class="certificate-section text-center p-4">
                         {% if error %}
@@ -201,6 +201,11 @@
                         {% endif %}
                     </div>
                 </div>
+                {% else %}
+                <div>
+                    Download Option will open on 10 Augest
+                </div>
+                {% endif %}
             </div>
 
         </div>

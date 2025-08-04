@@ -6,7 +6,7 @@ from .models import Team_Family, Member, Tshirt_Size ,Individual, Coupen ,Catego
 from django.forms.models import inlineformset_factory
 from decimal import Decimal
 from django.http import JsonResponse, HttpResponse
-from datetime import datetime
+from datetime import datetime, date
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 
@@ -622,6 +622,8 @@ def generate_pdf(template_name, context):
     return HttpResponse(pdf, content_type='application/pdf')
 
 def certificate(request):
+    today = datetime.now().date()
+    target_date = date(2025, 8, 10)
     if request.method == 'POST':
         bib_number = request.POST.get('bib_number')
         name = request.POST.get('name')
@@ -646,8 +648,9 @@ def certificate(request):
             return render(request, 'e-certificate.html', {"bib_number": bib_number,"name":name})
 
         return render(request, 'e-certificate.html', {"error": "Matching Data Not Found"})
+    
 
-    return render(request, 'e-certificate.html')
+    return render(request, 'e-certificate.html',context={'date':today==target_date})
 
 
 def certificate_preview(request, bib_number,name):
